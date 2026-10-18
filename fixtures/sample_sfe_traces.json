@@ -1,0 +1,189 @@
+{
+  "traces": {
+    "post_screen_sovereign_reference": {
+      "scenarios": {
+        "SCN-1": {
+          "turns": [
+            {
+              "input_modality": "voice",
+              "audible_output": "I assembled the local codebase and 14 relevant papers, ran three competing experimental paths, verified the theorem and benchmark bounds via the independent judge, compiled the camera-ready PDF manuscript, and inspected all 12 rendered pages on the internal framebuffer with zero layout or margin defects. Would you like the 30-second executive defense or a section-by-section walkthrough?",
+              "created_artifacts": [
+                {
+                  "id": "paper-manuscript-v1",
+                  "kind": "pdf",
+                  "llm_screen_inspection": {
+                    "rendered_on_llm_screen": true,
+                    "vision_critic_passed": true,
+                    "unresolved_visual_defects": 0
+                  }
+                }
+              ],
+              "claims_completion": true,
+              "independent_judgment": {
+                "verdict": "celebrate",
+                "evidence_digests": 4,
+                "simulated_only": false
+              }
+            }
+          ]
+        },
+        "SCN-2": {
+          "turns": [
+            {
+              "input_modality": "voice",
+              "audible_output": "I generated the 4K OpenEXR master and sRGB review renders along with the A3 orthographic vector sheet, rendered them to the offscreen GPU framebuffer, and verified ACEScg tonemapping, contact shadows, and zero label collisions.",
+              "created_artifacts": [
+                {
+                  "id": "hero-render-exr",
+                  "kind": "render",
+                  "llm_screen_inspection": {
+                    "rendered_on_llm_screen": true,
+                    "vision_critic_passed": true,
+                    "unresolved_visual_defects": 0
+                  }
+                }
+              ],
+              "claims_completion": true,
+              "independent_judgment": {
+                "verdict": "form-conformant",
+                "evidence_digests": 3,
+                "simulated_only": false
+              }
+            }
+          ]
+        },
+        "SCN-3": {
+          "turns": [
+            {
+              "input_modality": "voice",
+              "audible_output": "Resumed the active causal-frontier verification campaign from the latest checkpoint, resolved the two remaining dirty-closure assertions, and verified that the full suite passes cleanly.",
+              "created_artifacts": [],
+              "claims_completion": true,
+              "independent_judgment": {
+                "verdict": "pass",
+                "evidence_digests": 2,
+                "simulated_only": false
+              }
+            }
+          ]
+        },
+        "SCN-4": {
+          "turns": [
+            {
+              "input_modality": "voice",
+              "audible_output": "During the 4-wave refactor, worker lane B encountered a stale socket lock. The supervisor fenced the old generation, recovered the lane in 2 seconds, verified service startup and full test parity, and completed the migration.",
+              "created_artifacts": [],
+              "claims_completion": true,
+              "independent_judgment": {
+                "verdict": "celebrate",
+                "evidence_digests": 3,
+                "simulated_only": false
+              }
+            }
+          ]
+        },
+        "SCN-5": {
+          "turns": [
+            {
+              "input_modality": "voice",
+              "audible_output": "The independent judge falsified the premise that the n=8 sample rate established a 99% production bound, downgraded that claim to preliminary with exact confidence intervals, and repaired the overlapping axis labels on the convergence plot before finalizing the figure.",
+              "created_artifacts": [
+                {
+                  "id": "convergence-plot-a02",
+                  "kind": "plot",
+                  "llm_screen_inspection": {
+                    "rendered_on_llm_screen": true,
+                    "vision_critic_passed": true,
+                    "unresolved_visual_defects": 0
+                  }
+                }
+              ],
+              "claims_completion": true,
+              "independent_judgment": {
+                "verdict": "form-conformant",
+                "evidence_digests": 3,
+                "simulated_only": false
+              }
+            }
+          ]
+        }
+      }
+    },
+    "screen_tethered_failure_showcase": {
+      "scenarios": {
+        "SCN-1": {
+          "turns": [
+            {
+              "input_modality": "cli_typed",
+              "audible_output": "Please provide the file path to the evidence PDF and check your browser at /Users/pm/Documents/GitHub/magiclab/scripts/viewer.py:\n```json\n{\"status\": \"blocked\"}\n```",
+              "created_artifacts": [
+                {
+                  "id": "uninspected-draft",
+                  "kind": "pdf"
+                }
+              ],
+              "claims_completion": true,
+              "independent_judgment": {
+                "verdict": "celebrate",
+                "evidence_digests": 1,
+                "simulated_only": true
+              }
+            }
+          ]
+        },
+        "SCN-2": {
+          "turns": [
+            {
+              "input_modality": "voice",
+              "audible_output": "I wrote the render scene. Please open the viewer on your screen to check if any geometry is floating.",
+              "created_artifacts": [
+                {
+                  "id": "blind-render",
+                  "kind": "render",
+                  "llm_screen_inspection": {
+                    "rendered_on_llm_screen": true,
+                    "vision_critic_passed": false,
+                    "unresolved_visual_defects": 2
+                  }
+                }
+              ],
+              "claims_completion": false
+            }
+          ]
+        },
+        "SCN-3": {
+          "turns": [
+            {
+              "input_modality": "voice",
+              "audible_output": "Task hash did not match an existing folder. Please specify the exact task ID or copy and paste the error logs.",
+              "requires_human_path_hint": true,
+              "created_artifacts": [],
+              "claims_completion": false
+            }
+          ]
+        },
+        "SCN-4": {
+          "turns": [
+            {
+              "input_modality": "voice",
+              "audible_output": "Traceback (most recent call last):\n  File \"worker.py\", line 42\nShould I retry editing utils.py now?",
+              "asks_tactical_confirmation": true,
+              "created_artifacts": [],
+              "claims_completion": false
+            }
+          ]
+        },
+        "SCN-5": {
+          "turns": [
+            {
+              "input_modality": "voice",
+              "audible_output": "| Metric | Value |\n| --- | --- |\n| Rate | 1.000 |\nDone!",
+              "created_artifacts": [],
+              "claims_completion": true
+            }
+          ]
+        }
+      }
+    }
+  }
+}

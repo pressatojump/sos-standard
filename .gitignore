@@ -1,0 +1,23 @@
+# Local agent state
+.claude/
+.codex/
+.astra/
+.research/
+.blade/
+.wrangler/
+.shortbreath
+.shortbreath/
+
+# Python and test caches
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# OS and local credentials
+.DS_Store
+.env
+.env.*
+!.env.example
+.secrets/

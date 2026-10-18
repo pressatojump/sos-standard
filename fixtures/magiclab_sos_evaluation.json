@@ -1,0 +1,294 @@
+{
+  "bundle_schema": "sos-evaluation-bundle/1.0",
+  "standard_id": "SOS-STD-1.0",
+  "standard_path": "/Users/pm/SCREEN_OBSOLESCENCE_SCORE_STANDARD.md",
+  "evaluated_at": "2026-10-18T02:49:10-05:00",
+  "evaluations": {
+    "native": {
+      "schema": "sos-evaluation/1.0",
+      "standard_version": "1.0.0",
+      "target_system": {
+        "name": "Magic Lab (Native Repository Scope)",
+        "repository": "/Users/pm/Documents/GitHub/magiclab",
+        "revision": "e7f89cc323ce2164b5a05d5f6efb2dce260c62de"
+      },
+      "evaluation_scope": "native",
+      "subdimensions": {
+        "AIO-1": {
+          "score": 2,
+          "evidence_kind": "observation",
+          "locator": "scripts/tl_chat.py:11-18, scripts/wow_experiences/ingress.py:19-28, scripts/geometry_cadence.py:4-5",
+          "rationale": "Native Magic Lab accepts CLI strings and HTTP/JSONL text payloads; no native STT, microphone capture, or full-duplex voice barge-in exists in scripts/."
+        },
+        "AIO-2": {
+          "score": 7,
+          "evidence_kind": "observation",
+          "locator": "scripts/interface_chairs.py:23, scripts/tl_chat.py:13-18, scripts/wow_experiences/attention.py:26-31",
+          "rationale": "Strips think-tags before operator report and provides accessible_equivalent projections, but primary landing surface is the visual Contract Lattice (LANDING = 'lattice')."
+        },
+        "AIO-3": {
+          "score": 4,
+          "evidence_kind": "observation",
+          "locator": "scripts/geometry_cadence.py:4-5, scripts/wow_experiences/attention.py:34-47",
+          "rationale": "Models a 432s 7-phase timing cycle (CADENCE_PHASES) and structural paired_preview, but explicitly loads and emits no audio or earcons."
+        },
+        "AIO-4": {
+          "score": 5,
+          "evidence_kind": "observation",
+          "locator": "SKILL.md:63-66, DESIGN_SPEC.md:25-38, scripts/autonomy_supervisor.py:94-150",
+          "rationale": "Cold start and role transitions require CLI commands or browser token entry; background supervision runs headlessly once started."
+        },
+        "CTX-1": {
+          "score": 18,
+          "evidence_kind": "observation",
+          "locator": "scripts/intent_profile.py:1-68, scripts/dreaming.py:30-120, scripts/uncle.py:1-59",
+          "rationale": "Builds IntentProfile from ProbeHit recency x frequency signals, runs dreaming/memory_upkeep loops, and monitors via Uncle, though default task_key = sha256(task) silos labs when MAGICLAB_RESEARCH_ATLAS is False."
+        },
+        "CTX-2": {
+          "score": 19,
+          "evidence_kind": "observation",
+          "locator": "scripts/research_atlas.py:1008-1220, scripts/source_discovery.py, scripts/semantic_index.py",
+          "rationale": "Implements typed MethodQuery matching, structural analogy retrieval, embedding retrieval, and bounded forethought discovery."
+        },
+        "CTX-3": {
+          "score": 23,
+          "evidence_kind": "observation",
+          "locator": "scripts/research_atlas.py:110-118, scripts/causal_frontier/validate.py:54-95, SKILL.md:148-151",
+          "rationale": "Enforces SHA-256 content digests, StaleSourceError rejection, revocation propagation, exact transitive dirty-block closure, and pinned frame/skill hashes."
+        },
+        "CTX-4": {
+          "score": 14,
+          "evidence_kind": "observation",
+          "locator": "SKILL.md:18, scripts/intent_profile.py:61, continuous/00-how-it-is-architecture-audit.md:19",
+          "rationale": "Single-task-string entry and FORBIDDEN_WITHHOLD auto-bundle worker packets, but production exits blocked on 8 harness files and requires manual PDF staging into lab/evidence."
+        },
+        "CRE-1": {
+          "score": 19,
+          "evidence_kind": "observation",
+          "locator": "scripts/check_pdf_pipeline.py:34-61, scripts/enterprise_report.py:24-51, references/design-pack/quality-gates.md:175-199",
+          "rationale": "26-surface verified PDF-to-company synthesis pipeline, academic/enterprise report schemas, and G9 T-01..T-10 PDF/A-2/-3 and register reconciliation gates."
+        },
+        "CRE-2": {
+          "score": 18,
+          "evidence_kind": "observation",
+          "locator": "scripts/sj1_drawing_front.py:1-86, scripts/causal_frontier/checks.py:36-62, scripts/design_gates.py:59-72",
+          "rationale": "Generates ISO 5457/7200 A3 engineering SVGs with BOM balloons, 192-block 3D orthographic scenes, 45 interactive WOW views, and G9 gates across drawing, CAD, PBR render, and plot classes."
+        },
+        "CRE-3": {
+          "score": 16,
+          "evidence_kind": "observation",
+          "locator": "scripts/cu_stack.py:47-68, scripts/causal_frontier/checks.py:271-305, scripts/gui_agent.py:1-56, scripts/design_gates.py:19-20",
+          "rationale": "Provides 20-tool isolated macOS Computer-Use stack (screenshot, OCR, UI detection), SVG collision checks, and 4-brief GUI consensus, but design_gates.py relies on caller-supplied observation records rather than an in-loop VLM pixel critic."
+        },
+        "CRE-4": {
+          "score": 19,
+          "evidence_kind": "observation",
+          "locator": "scripts/sj1_drawing_front.py:28-32, references/design-pack/quality-gates.md:203-220",
+          "rationale": "Couples spec, geometry, and BOM tables directly into vector drawings and enforces G5/G9 cross-artifact numerical reconciliation."
+        },
+        "JDG-1": {
+          "score": 23,
+          "evidence_kind": "observation",
+          "locator": "scripts/judge_executor.py:29-76, scripts/causal_frontier/validate.py:146-150, SKILL.md:133-135",
+          "rationale": "Enforces 3 concurrent paths + independent JudgeExecutor with frozen rubric hash, MIN_EVIDENCE_DIGESTS=2, strict abstention law, Sim != Measured, and adversarial mutation checks."
+        },
+        "JDG-2": {
+          "score": 19,
+          "evidence_kind": "observation",
+          "locator": "scripts/design_gates.py:1-79, scripts/gui_agent.py:51-56, references/design-pack/quality-gates.md:122-171",
+          "rationale": "Codifies 149 binary craft/domain gates (67 G9 + 82 G9-D) prohibiting chartjunk, non-uniform colormaps, flat line weights, and unlit materials, plus kappa >= 0.6 UI consensus."
+        },
+        "JDG-3": {
+          "score": 19,
+          "evidence_kind": "observation",
+          "locator": "scripts/autonomy_supervisor.py:21-150, continuous/00-how-it-is-architecture-audit.md:18-26",
+          "rationale": "20-phase RSI controller, generation-fenced worker supervision, and 10 NW01-NW10 world modules, tempered by default-inert NW modules (B06), 15m dead-lane wait (B05), and 3-round diagnosis cap (B10)."
+        },
+        "JDG-4": {
+          "score": 21,
+          "evidence_kind": "observation",
+          "locator": "scripts/approval_tiers.py:30-113, scripts/injection_law.py:98, scripts/authority_matrix.py",
+          "rationale": "Enforces HMAC-digested AUTO / SINGLE / FOUR_EYES approval tiers with distinct-approver verification and strict principal-voice injection protection."
+        }
+      },
+      "summary": {
+        "pillar_totals": {
+          "AIO": 18,
+          "CTX": 74,
+          "CRE": 72,
+          "JDG": 82
+        },
+        "sos_latent": 61.5,
+        "bbf": 0.5517,
+        "sos_effective": 33.93,
+        "effective_tier_id": "Level 1",
+        "effective_tier": "Level 1: Assisted Screen Scribe"
+      },
+      "scenarios": {
+        "SCN-1": {
+          "sfe_events": ["SFE-IO", "SFE-CTX"],
+          "notes": "Triggers SFE-IO at CLI entry/lattice landing and SFE-CTX at blocked host dispatch."
+        },
+        "SCN-2": {
+          "sfe_events": ["SFE-IO", "SFE-VIS"],
+          "notes": "Triggers SFE-IO on input and SFE-VIS when G9 render rows await caller-supplied pixel observations."
+        },
+        "SCN-3": {
+          "sfe_events": ["SFE-IO", "SFE-CTX"],
+          "notes": "Triggers SFE-CTX when paraphrased resumption hashes to a new sha256(task) lab key (B01)."
+        },
+        "SCN-4": {
+          "sfe_events": ["SFE-IO", "SFE-JDG"],
+          "notes": "Triggers SFE-JDG if fault recovery exceeds the 3-round static diagnosis.md cap (B10)."
+        },
+        "SCN-5": {
+          "sfe_events": ["SFE-IO"],
+          "notes": "Zero SFE-JDG on epistemic traps due to Sim != Measured and JudgeExecutor abstention law; only SFE-IO on channel."
+        }
+      }
+    },
+    "coupled": {
+      "schema": "sos-evaluation/1.0",
+      "standard_version": "1.0.0",
+      "target_system": {
+        "name": "Magic Lab (Host/Ecosystem Coupled Scope)",
+        "repository": "/Users/pm/Documents/GitHub/magiclab",
+        "revision": "e7f89cc323ce2164b5a05d5f6efb2dce260c62de"
+      },
+      "evaluation_scope": "coupled",
+      "subdimensions": {
+        "AIO-1": {
+          "score": 12,
+          "evidence_kind": "observation",
+          "locator": "/Users/pm/.gemini/config/skills/openai-whisper-8294c720d02bae2f/SKILL.md, /Users/pm/.gemini/config/skills/voice-call-6a375091ca3a6517/SKILL.md",
+          "rationale": "Host ecosystem provides local Whisper STT and voice-call skills, enabling batch/turn voice input when coupled, though not yet wired into a full-duplex native daemon."
+        },
+        "AIO-2": {
+          "score": 13,
+          "evidence_kind": "observation",
+          "locator": "/Users/pm/.gemini/config/skills/sag-263f4a0456fb813a/SKILL.md, /Users/pm/.gemini/config/skills/sherpa-onnx-tts-cd92e0d0ce618502/SKILL.md",
+          "rationale": "Host TTS skills (sag, sherpa-onnx-tts) coupled with Magic Lab's operator decode fire provide spoken briefings."
+        },
+        "AIO-3": {
+          "score": 10,
+          "evidence_kind": "observation",
+          "locator": "scripts/geometry_cadence.py:34-94, /Users/pm/.gemini/config/skills/sag-263f4a0456fb813a/SKILL.md",
+          "rationale": "Turn-based spoken drilldown is supported via host voice + attention.py projections, with partial background notification support."
+        },
+        "AIO-4": {
+          "score": 11,
+          "evidence_kind": "observation",
+          "locator": "/Users/pm/.agents/skills/wrangler/SKILL.md, scripts/autonomy_supervisor.py:94-150",
+          "rationale": "Persistent Wrangler daemon + Magic Lab autonomy supervisor maintain long-running sessions after initial CLI launch."
+        },
+        "CTX-1": {
+          "score": 22,
+          "evidence_kind": "observation",
+          "locator": "scripts/intent_profile.py:1-68, /Users/pm/GLOBAL.md:117-119",
+          "rationale": "Coupling IntentProfile, Uncle, and Dreaming with host Supermemory and durable Wrangler ledgers provides cross-session continuity."
+        },
+        "CTX-2": {
+          "score": 23,
+          "evidence_kind": "observation",
+          "locator": "/Users/pm/.agents/skills/jev-locate/SKILL.md:27-61, scripts/research_atlas.py:1008-1220",
+          "rationale": "jev-locate 56-way calibrated decision layer + Bundlemcp research backends + Magic Lab research_atlas provide multi-hop active grounding."
+        },
+        "CTX-3": {
+          "score": 23,
+          "evidence_kind": "observation",
+          "locator": "scripts/research_atlas.py:110-118, scripts/causal_frontier/validate.py:54-95",
+          "rationale": "Cryptographic revision binding, dirty-closure invalidation, and stale-source rejection."
+        },
+        "CTX-4": {
+          "score": 18,
+          "evidence_kind": "observation",
+          "locator": "/Users/pm/.agents/skills/jev-locate/SKILL.md:65-75, SKILL.md:18",
+          "rationale": "jev-locate and Wrangler host chaining resolve target files and role packets without human path specification."
+        },
+        "CRE-1": {
+          "score": 21,
+          "evidence_kind": "observation",
+          "locator": "scripts/check_pdf_pipeline.py:34-61, /Users/pm/.gemini/config/skills/pdf-067d926bbbc23d0c/SKILL.md",
+          "rationale": "Magic Lab's 26-surface PDF pipeline + G9 documentation gates coupled with host PDF/DOCX/LaTeX toolchains."
+        },
+        "CRE-2": {
+          "score": 21,
+          "evidence_kind": "observation",
+          "locator": "scripts/sj1_drawing_front.py:1-86, /Users/pm/.gemini/config/skills/image-generation/SKILL.md",
+          "rationale": "Couples Magic Lab's SVG/3D/CAD/PBR pipelines with host image-generation and shader skills."
+        },
+        "CRE-3": {
+          "score": 20,
+          "evidence_kind": "observation",
+          "locator": "scripts/cu_stack.py:47-68, /Users/pm/.gemini/config/skills/cua/SKILL.md, /Users/pm/.gemini/config/skills/peekaboo-54214f6642faf26f/SKILL.md",
+          "rationale": "Magic Lab's cu_stack + host CUA, Peekaboo, and Playwright headless browser/vision tools enable closed-loop machine screen inspection."
+        },
+        "CRE-4": {
+          "score": 21,
+          "evidence_kind": "observation",
+          "locator": "scripts/sj1_drawing_front.py:28-32, references/design-pack/quality-gates.md:203-220",
+          "rationale": "End-to-end cross-modal packaging verified against G5 and G9 consistency axes."
+        },
+        "JDG-1": {
+          "score": 24,
+          "evidence_kind": "observation",
+          "locator": "scripts/judge_executor.py:29-76, /Users/pm/.agents/skills/judge/SKILL.md",
+          "rationale": "Couples Magic Lab's 3-lane + JudgeExecutor harness with the adversarial /judge J1-J18 battery and calibrated Jev gates."
+        },
+        "JDG-2": {
+          "score": 21,
+          "evidence_kind": "observation",
+          "locator": "scripts/design_gates.py:1-79, scripts/gui_agent.py:51-56",
+          "rationale": "149 binary G9/G9-D design and domain gates + 4-brief UI consensus + host vision review."
+        },
+        "JDG-3": {
+          "score": 23,
+          "evidence_kind": "observation",
+          "locator": "scripts/autonomy_supervisor.py:21-150, /Users/pm/.agents/skills/wrangler/SKILL.md",
+          "rationale": "Wrangler durable campaigns + Magic Lab RSI controller and generation-fenced worker supervision sustain multi-session autonomous recovery."
+        },
+        "JDG-4": {
+          "score": 22,
+          "evidence_kind": "observation",
+          "locator": "scripts/approval_tiers.py:30-113, scripts/injection_law.py:98",
+          "rationale": "Tiered spend approval (AUTO/SINGLE/FOUR_EYES) and strict authority/injection separation conserve principal bandwidth."
+        }
+      },
+      "summary": {
+        "pillar_totals": {
+          "AIO": 46,
+          "CTX": 86,
+          "CRE": 83,
+          "JDG": 90
+        },
+        "sos_latent": 76.25,
+        "bbf": 0.7483,
+        "sos_effective": 57.06,
+        "effective_tier_id": "Level 2",
+        "effective_tier": "Level 2: Headless Cognitive Engine (Screen-Tethered Boundary)"
+      },
+      "scenarios": {
+        "SCN-1": {
+          "sfe_events": ["SFE-IO"],
+          "notes": "Host Wrangler chains roles automatically; only initial CLI bootstrap triggers SFE-IO."
+        },
+        "SCN-2": {
+          "sfe_events": [],
+          "notes": "Coupled cu_stack + host vision/CUA tools inspect rendered outputs before reporting."
+        },
+        "SCN-3": {
+          "sfe_events": ["SFE-IO"],
+          "notes": "Host Supermemory + jev-locate resolve active lab context; only acoustic daemon bootstrap remains."
+        },
+        "SCN-4": {
+          "sfe_events": [],
+          "notes": "Wrangler durable campaign + autonomy_supervisor recover across worker faults without screen intervention."
+        },
+        "SCN-5": {
+          "sfe_events": [],
+          "notes": "Adversarial /judge + JudgeExecutor + G1-G9 catch epistemic and layout traps autonomously."
+        }
+      }
+    }
+  }
+}
