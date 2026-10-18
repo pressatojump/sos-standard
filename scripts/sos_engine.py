@@ -156,7 +156,7 @@ MATURITY_TIERS: tuple[dict[str, Any], ...] = (
     {
         "level": 5,
         "id": "Level 5",
-        "name": "Post-Screen Liberation (Ideation-on-Machine Sovereign)",
+        "name": "Post-Screen Liberation (Ideation-on-Machine Closure)",
         "min_effective": 95.0,
         "max_effective": 119.99,
         "min_all_pillars": 90.0,
@@ -165,7 +165,7 @@ MATURITY_TIERS: tuple[dict[str, Any], ...] = (
     {
         "level": 6,
         "id": "Level 6",
-        "name": "Autonomous Value Accrual Sovereign",
+        "name": "Autonomous Value Accrual",
         "min_effective": 120.0,
         "max_effective": 159.99,
         "min_all_pillars": 90.0,
@@ -174,7 +174,7 @@ MATURITY_TIERS: tuple[dict[str, Any], ...] = (
     {
         "level": 7,
         "id": "Level 7",
-        "name": "Robotic & Wet-Lab Development Sovereign",
+        "name": "Robotic and Wet-Lab Execution",
         "min_effective": 160.0,
         "max_effective": 219.99,
         "min_all_pillars": 95.0,
@@ -183,7 +183,7 @@ MATURITY_TIERS: tuple[dict[str, Any], ...] = (
     {
         "level": 8,
         "id": "Level 8",
-        "name": "Unbounded Matter & Reality Foundry",
+        "name": "Open-Ended Material and Physical Synthesis",
         "min_effective": 220.0,
         "max_effective": None,  # Unbounded above: [220.00, inf)
         "min_all_pillars": 95.0,

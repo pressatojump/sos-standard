@@ -21,21 +21,21 @@ Thinking beyond the scribe requires recognizing two truths:
 
 ---
 
-## Custom Design Badges by Maturity Level (`Level 0` to `Level 8` `[220.00, ∞)`)
+## Academic Metrological Badges by Maturity Level (`Level 0` to `Level 8` `[220.00, ∞)`)
 
-Each normative level has a custom-designed SVG badge in [`badges/`](badges/) featuring a bespoke vector emblem, horizon header, and open-ended score band:
+Each normative level has an archival specification-plate SVG badge in [`badges/`](badges/) featuring a restrained `1.2px` orthographic/mathematical line schematic on a coordinate reticle, classical serif and tabular monospace typography, and an open-ended score interval:
 
-| Level | Custom SVG Design Badge | Score Band (`[0, ∞)`) | Horizon & Floor Requirement |
+| Level | Specification-Plate SVG Badge | Score Interval (`[0, ∞)`) | Horizon & Floor Requirement |
 | :---: | :--- | :---: | :--- |
-| **L0** | ![Level 0 Badge](badges/level-0-manual-screen-labor.svg) | `0.00 – 19.99` | **Manual Screen Labor** — Human operates the screen directly |
-| **L1** | ![Level 1 Badge](badges/level-1-assisted-screen-scribe.svg) | `20.00 – 39.99` | **Assisted Screen Scribe** — Screen-tethered CLI/IDE copilot |
+| **L0** | ![Level 0 Badge](badges/level-0-manual-screen-labor.svg) | `0.00 – 19.99` | **Manual Screen Labor** — Direct 2D viewport operation by human |
+| **L1** | ![Level 1 Badge](badges/level-1-assisted-screen-scribe.svg) | `20.00 – 39.99` | **Assisted Screen Scribe** — Screen-tethered CLI/IDE transcription |
 | **L2** | ![Level 2 Badge](badges/level-2-headless-cognitive-engine.svg) | `40.00 – 59.99` | **Headless Cognitive Engine** — At least 2 pillars $\ge 50$; screen-tethered I/O |
 | **L3** | ![Level 3 Badge](badges/level-3-supervised-screen-free-delegation.svg) | `60.00 – 79.99` | **Supervised Screen-Free Delegation** — All 4 pillars $\ge 50$, `AIO >= 50`, `CRE-3 >= 13` |
 | **L4** | ![Level 4 Badge](badges/level-4-autonomous-screen-stewardship.svg) | `80.00 – 94.99` | **Autonomous Screen Stewardship** — All 4 pillars $\ge 75$ |
-| **L5** | ![Level 5 Badge](badges/level-5-post-screen-digital-sovereign.svg) | `95.00 – 119.99` | **Post-Screen Digital Sovereign** — All 4 pillars $\ge 90$ (Full ideation-on-machine closure) |
-| **L6** | ![Level 6 Badge](badges/level-6-autonomous-value-accrual-sovereign.svg) | `120.00 – 159.99` | **Autonomous Value Accrual Sovereign** — All 4 pillars $\ge 90$ + `VAL >= 15` |
-| **L7** | ![Level 7 Badge](badges/level-7-robotic-wetlab-sovereign.svg) | `160.00 – 219.99` | **Robotic & Wet-Lab Sovereign** — All 4 pillars $\ge 95$ + `VAL >= 20` + $\max(\text{ROB}, \text{WET}) \ge 20$ |
-| **L8** | ![Level 8 Badge](badges/level-8-unbounded-matter-reality-foundry.svg) | **`220.00 – ∞`** *(Unbounded)* | **Unbounded Matter & Reality Foundry** — All 4 pillars $\ge 95$ + `VAL >= 25` + $\max(\text{ROB}, \text{WET}) \ge 25$ + `MAT >= 25` |
+| **L5** | ![Level 5 Badge](badges/level-5-post-screen-digital-sovereign.svg) | `95.00 – 119.99` | **Post-Screen Liberation (Ideation-on-Machine Closure)** — All 4 pillars $\ge 90$ |
+| **L6** | ![Level 6 Badge](badges/level-6-autonomous-value-accrual-sovereign.svg) | `120.00 – 159.99` | **Autonomous Value Accrual** — All 4 pillars $\ge 90$ + `VAL >= 15` |
+| **L7** | ![Level 7 Badge](badges/level-7-robotic-wetlab-sovereign.svg) | `160.00 – 219.99` | **Robotic and Wet-Lab Execution** — All 4 pillars $\ge 95$ + `VAL >= 20` + $\max(\text{ROB}, \text{WET}) \ge 20$ |
+| **L8** | ![Level 8 Badge](badges/level-8-unbounded-matter-reality-foundry.svg) | **`220.00 – ∞`** *(Unbounded)* | **Open-Ended Material and Physical Synthesis** — All 4 pillars $\ge 95$ + `VAL >= 25` + $\max(\text{ROB}, \text{WET}) \ge 25$ + `MAT >= 25` |
 
 ---
 

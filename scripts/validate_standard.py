@@ -131,7 +131,11 @@ def validate_markdown_document(doc_path: Path = DOCUMENT) -> dict[str, Any]:
 
     for spec in LEVEL_BADGE_SPECS:
         require(spec["filename"] in text, f"Missing custom badge filename {spec['filename']} in standard")
-        require(spec["ascii_badge"] in text, f"Missing inline ASCII badge {spec['ascii_badge']} in standard")
+        escaped_ascii = spec["ascii_badge"].replace("|", "\\|")
+        require(
+            spec["ascii_badge"] in text or escaped_ascii in text,
+            f"Missing inline ASCII badge {spec['ascii_badge']} in standard",
+        )
 
     for scn_id in SCENARIO_IDS:
         require(f"`{scn_id}`" in text, f"Missing scenario ID in standard: {scn_id}")

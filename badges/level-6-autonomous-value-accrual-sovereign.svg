@@ -1,28 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="540" height="68" viewBox="0 0 540 68" role="img" aria-label="LEVEL 6 · AUTONOMOUS VALUE ACCRUAL SOVEREIGN (SOS 120.00 – 159.99)">
-  <title>LEVEL 6 · AUTONOMOUS VALUE ACCRUAL SOVEREIGN — SOS 120.00 – 159.99</title>
-  <defs>
-    <linearGradient id="bg-l6" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#2a0808"/>
-      <stop offset="100%" stop-color="#7f1d1d"/>
-    </linearGradient>
-    <linearGradient id="emblem-l6" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#090d16"/>
-      <stop offset="100%" stop-color="#2a0808"/>
-    </linearGradient>
-  </defs>
-  <rect x="1" y="1" width="538" height="66" rx="10" fill="url(#bg-l6)" stroke="#fbbf24" stroke-width="1.5"/>
-  <rect x="1" y="1" width="68" height="66" rx="10" fill="url(#emblem-l6)"/>
-  <line x1="69" y1="2" x2="69" y2="66" stroke="#fbbf24" stroke-width="1.2" stroke-opacity="0.65"/>
-  <g id="emblem-value-lattice">
-    <polygon points="34,14 50,30 34,46 18,30" fill="none" stroke="#fbbf24" stroke-width="1.8"/>
-        <polyline points="18,46 28,36 35,40 48,22" fill="none" stroke="#fef08a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-        <polyline points="41,22 48,22 48,29" fill="none" stroke="#fef08a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="28" cy="36" r="2.2" fill="#fef08a"/>
-        <circle cx="35" cy="40" r="2.2" fill="#fef08a"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="540" height="68" viewBox="0 0 540 68" role="img" aria-label="LEVEL 6 · AUTONOMOUS VALUE ACCRUAL (120.00 – 159.99)">
+  <title>LEVEL 6 · AUTONOMOUS VALUE ACCRUAL — 120.00 – 159.99</title>
+  <rect x="0.5" y="0.5" width="539" height="67" rx="3" fill="#fcfcfd" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="1" y="1" width="66" height="66" fill="#f1f5f9"/>
+  <rect x="1" y="1" width="3.5" height="66" fill="#27272a"/>
+  <line x1="67.5" y1="1" x2="67.5" y2="67" stroke="#cbd5e1" stroke-width="1"/>
+  <line x1="67.5" y1="24" x2="539" y2="24" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="420" y1="1" x2="420" y2="24" stroke="#e2e8f0" stroke-width="1"/>
+  <g id="emblem-utility-integral">
+    <line x1="14" y1="34" x2="54" y2="34" stroke="#cbd5e1" stroke-width="0.75"/><line x1="34" y1="14" x2="34" y2="54" stroke="#cbd5e1" stroke-width="0.75"/>
+        <polyline points="18,18 18,48 50,48" fill="none" stroke="#27272a" stroke-width="1.25"/>
+        <path d="M 18 46 L 26 46 L 26 39 L 34 39 L 34 30 L 42 30 L 42 21 L 49 21" fill="none" stroke="#27272a" stroke-width="1.3"/>
+        <circle cx="49" cy="21" r="1.8" fill="#27272a"/>
   </g>
-  <text x="82" y="21" fill="#fef08a" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="9.5" font-weight="700" letter-spacing="0.8">SOS-1.0 STANDARD · H2 · IDEATION → VALUE ACCRUAL (VAL)</text>
-  <rect x="412" y="9" width="116" height="17" rx="8.5" fill="#090d16" fill-opacity="0.72" stroke="#fbbf24" stroke-width="1"/>
-  <text x="470" y="20.5" fill="#fef08a" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="9.5" font-weight="700" text-anchor="middle">SOS 120.00 – 159.99</text>
-  <text x="82" y="42" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="14.5" font-weight="800" letter-spacing="0.3">LEVEL 6 · AUTONOMOUS VALUE ACCRUAL SOVEREIGN</text>
-  <text x="82" y="57.5" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="500">Solves from machine ideation to autonomous deployment &amp; value capture</text>
+  <text x="78" y="16" fill="#475569" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="8.8" font-weight="600" letter-spacing="0.5">SOS-STD-1.0 · DOMAIN H2 · ECONOMIC &amp; OPERATIONAL VALUE ACCRUAL (VAL)</text>
+  <text x="480" y="16" fill="#27272a" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="8.8" font-weight="700" text-anchor="middle">INTERVAL: 120.00 – 159.99</text>
+  <text x="78" y="42.5" fill="#0f172a" font-family="Georgia, 'Times New Roman', STIXGeneral, serif" font-size="13.2" font-weight="700" letter-spacing="0.15">LEVEL 6 · AUTONOMOUS VALUE ACCRUAL</text>
+  <text x="78" y="57.5" fill="#475569" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="10.0" font-weight="400">Closed-loop execution from machine ideation to deployment and measurable value accrual</text>
 </svg>
