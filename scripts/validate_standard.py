@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
-"""Validate SCREEN_OBSOLESCENCE_SCORE_STANDARD.md, embedded formulas, fixtures, and negative cases.
+"""Validate SCREEN_OBSOLESCENCE_SCORE_STANDARD.md, badges, unbounded [0, inf) math, fixtures, and negative cases.
 
 Performs:
 1. Structural and normative inventory checks on SCREEN_OBSOLESCENCE_SCORE_STANDARD.md
    (including Section 1.3 "Why This Standard Is Important", H-SEALED-SCREEN, 4 SFE codes,
-   4 Pillars, 16 Sub-Dimensions, 6 Maturity Tiers, RULE-TIER-CAP, 5 Scenarios, and
-   4 Normative Evaluation Rules).
+   4 Core Pillars, 16 Sub-Dimensions, 4 Frontier Realization Horizons (VAL, ROB, WET, MAT),
+   9 Maturity Tiers (Level 0 .. Level 8 [220, inf)), Custom Design Badges Specification,
+   RULE-TIER-CAP, 5 Scenarios, and 4 Normative Evaluation Rules).
 2. Byte-parity verification with ~/SCREEN_OBSOLESCENCE_SCORE_STANDARD.md when present.
-3. Mathematical property checks (bounds, monotonicity, BBF formula, RULE-TIER-CAP).
-4. 18 negative/adversarial rejection checks on sos_engine and sos_sfe_harness.
-5. Validation of fixtures/magiclab_sos_evaluation.json and fixtures/sample_sfe_traces.json.
-6. Execution of the full unittest suite in tests/test_sos_suite.py.
+3. Custom SVG badge verification across all 9 levels + evaluated Magic Lab badges.
+4. Mathematical property checks (unbounded [0, inf) scaling, monotonicity, BBF, Level 0..8 floors, RULE-TIER-CAP).
+5. 20 negative/adversarial rejection checks on sos_engine and sos_sfe_harness.
+6. Validation of fixtures/magiclab_sos_evaluation.json and fixtures/sample_sfe_traces.json.
+7. Execution of the full unittest suite in tests/test_sos_suite.py.
 
 Python 3.11 stdlib only; deterministic; no network.
 """
@@ -30,10 +32,11 @@ SCRIPTS_DIR = Path(__file__).resolve().parent
 if str(SCRIPTS_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPTS_DIR))
 
+from sos_badges import LEVEL_BADGE_SPECS, validate_badge_svg
 from sos_engine import (
     ALL_SUBDIMENSIONS,
+    FRONTIER_HORIZONS,
     MATURITY_TIERS,
-    PILLARS,
     SCENARIO_IDS,
     SFE_CODES,
     SOSEngineError,
@@ -46,6 +49,7 @@ from sos_sfe_harness import audit_suite_traces
 ROOT = SCRIPTS_DIR.parent
 DOCUMENT = ROOT / "SCREEN_OBSOLESCENCE_SCORE_STANDARD.md"
 HOME_DOCUMENT = Path.home() / "SCREEN_OBSOLESCENCE_SCORE_STANDARD.md"
+BADGES_DIR = ROOT / "badges"
 MAGICLAB_FIXTURE = ROOT / "fixtures" / "magiclab_sos_evaluation.json"
 TRACES_FIXTURE = ROOT / "fixtures" / "sample_sfe_traces.json"
 
@@ -64,12 +68,15 @@ REQUIRED_SECTIONS: tuple[str, ...] = (
     "### 1.3 Why This Standard Is Important",
     "## 2. The Necessary Hypothetical Scenario: The Sealed-Screen Protocol (`H-SEALED-SCREEN`)",
     "### 2.1 Definition of a Screen Fallback Event (`SFE`)",
-    "## 3. Normative Architecture of the Score: The Four Critical Factors",
+    "## 3. Normative Architecture of the Score: The Four Core Pillars and Open-Ended Frontier Horizons",
     "### Pillar I: Audible Inputs and Outputs (`AIO` — 0 to 100 Points)",
     "### Pillar II: Passive and Active Context Assembly (`CTX` — 0 to 100 Points)",
     "### Pillar III: Creation Across Modalities and LLM-Managed Screen Stewardship (`CRE` — 0 to 100 Points)",
     "### Pillar IV: Independent Judgment (`JDG` — 0 to 100 Points)",
-    "## 4. Mathematical Formulation of the Score",
+    "### Unbounded Frontier Realization Horizons (`FRH` — `[0, ∞)` Points)",
+    "## 4. Mathematical Formulation of the Score (Unbounded `[0, ∞)` Domain)",
+    "### 4.4 Scribe-to-Post-Screen & Unbounded Frontier Maturity Tiers",
+    "### 4.5 Custom Design Badges Specification (`SOS-BADGE-1.0`)",
     "## 5. Reference Benchmark Scenarios (`SOS-BENCH-5`)",
     "## 6. Normative Evaluation Procedure and Reporting Contract",
 )
@@ -93,11 +100,9 @@ def validate_markdown_document(doc_path: Path = DOCUMENT) -> dict[str, Any]:
     raw_bytes = doc_path.read_bytes()
     text = raw_bytes.decode("utf-8")
 
-    # Verify balanced code fences
     blocks = re.findall(r"^```([^\n]*)\n(.*?)^```[ \t]*$", text, re.M | re.S)
     require(text.count("\n```") == 2 * len(blocks), "Unbalanced Markdown code fences")
 
-    # Verify all required section headers exist in order
     last_pos = -1
     for header in REQUIRED_SECTIONS:
         pos = text.find(header)
@@ -105,11 +110,9 @@ def validate_markdown_document(doc_path: Path = DOCUMENT) -> dict[str, Any]:
         require(pos > last_pos, f"Section header out of order: {header}")
         last_pos = pos
 
-    # Verify all 4 SFE codes
     for code in SFE_CODES:
         require(f"`{code}`" in text, f"Missing SFE code in standard: {code}")
 
-    # Verify all 16 sub-dimensions and their 4 rubric bands (0–5, 6–12, 13–19, 20–25)
     for sub_id in ALL_SUBDIMENSIONS:
         require(f"#### `{sub_id}`:" in text, f"Missing sub-dimension heading: {sub_id}")
     for band in ("**0–5", "**6–12", "**13–19", "**20–25"):
@@ -119,20 +122,23 @@ def validate_markdown_document(doc_path: Path = DOCUMENT) -> dict[str, Any]:
             f"Expected 16 occurrences of rubric band prefix {band!r}, found {count}",
         )
 
-    # Verify all 6 Maturity Tiers
+    for fh in FRONTIER_HORIZONS:
+        require(f"`{fh}`" in text, f"Missing Frontier Horizon {fh} in standard")
+
     for tier in MATURITY_TIERS:
         require(f"**{tier['id']}**" in text, f"Missing tier in standard: {tier['id']}")
         require(f"**{tier['name']}**" in text, f"Missing tier name in standard: {tier['name']}")
 
-    # Verify all 5 Reference Benchmark Scenarios
+    for spec in LEVEL_BADGE_SPECS:
+        require(spec["filename"] in text, f"Missing custom badge filename {spec['filename']} in standard")
+        require(spec["ascii_badge"] in text, f"Missing inline ASCII badge {spec['ascii_badge']} in standard")
+
     for scn_id in SCENARIO_IDS:
         require(f"`{scn_id}`" in text, f"Missing scenario ID in standard: {scn_id}")
 
-    # Verify all 5 Normative Rules
     for rule_id in REQUIRED_NORMATIVE_RULES:
         require(f"`{rule_id}`" in text, f"Missing normative rule ID in standard: {rule_id}")
 
-    # Check home directory sync if ~/SCREEN_OBSOLESCENCE_SCORE_STANDARD.md exists
     home_synced = False
     if HOME_DOCUMENT.is_file():
         home_digest = sha256(HOME_DOCUMENT.read_bytes()).hexdigest()
@@ -149,8 +155,26 @@ def validate_markdown_document(doc_path: Path = DOCUMENT) -> dict[str, Any]:
         "home_synced": home_synced,
         "sections_verified": len(REQUIRED_SECTIONS),
         "subdimensions_verified": len(ALL_SUBDIMENSIONS),
+        "frontier_horizons_verified": len(FRONTIER_HORIZONS),
+        "tiers_verified": len(MATURITY_TIERS),
         "rules_verified": len(REQUIRED_NORMATIVE_RULES),
     }
+
+
+def validate_badges_directory(badges_dir: Path = BADGES_DIR) -> int:
+    require(badges_dir.is_dir(), f"Badges directory missing: {badges_dir}")
+    verified = 0
+    for spec in LEVEL_BADGE_SPECS:
+        svg_path = badges_dir / spec["filename"]
+        require(svg_path.is_file(), f"Missing level badge SVG: {svg_path}")
+        validate_badge_svg(svg_path.read_text(encoding="utf-8"), expected_level=spec["level"])
+        verified += 1
+    for sys_badge, expected_lvl in (("magiclab-native.svg", 1), ("magiclab-coupled.svg", 2)):
+        svg_path = badges_dir / sys_badge
+        require(svg_path.is_file(), f"Missing system badge SVG: {svg_path}")
+        validate_badge_svg(svg_path.read_text(encoding="utf-8"), expected_level=expected_lvl)
+        verified += 1
+    return verified
 
 
 def check_mathematical_invariants() -> int:
@@ -163,19 +187,44 @@ def check_mathematical_invariants() -> int:
     require(z_res["bbf"] == 1.0, "Zero BBF mismatch")
     require(z_res["sos_effective"] == 0.0, "Zero effective mismatch")
     require(z_res["effective_tier_level"] == 0, "Zero tier mismatch")
+    require(z_res["score_ceiling"] is None, "Score must have no upper ceiling")
     checks += 1
 
-    # 2. Perfect vector -> Level 5, SOS_latent = 100.0, BBF = 1.0, SOS_effective = 100.0
+    # 2. Digital reference sovereign vector (25 each, FRI=0) -> Level 5, SOS_effective = 100.0
     max_scores = {k: 25 for k in ALL_SUBDIMENSIONS}
     m_res = compute_scores(max_scores)
-    require(m_res["sos_latent"] == 100.0, "Max latent mismatch")
-    require(m_res["bbf"] == 1.0, "Max BBF mismatch")
-    require(m_res["sos_effective"] == 100.0, "Max effective mismatch")
-    require(m_res["effective_tier_level"] == 5, "Max tier mismatch")
-    require(not m_res["tier_capped"], "Max should not be capped")
+    require(m_res["sos_latent"] == 100.0, "Reference digital latent mismatch")
+    require(m_res["bbf"] == 1.0, "Reference digital BBF mismatch")
+    require(m_res["sos_effective"] == 100.0, "Reference digital effective mismatch")
+    require(m_res["effective_tier_level"] == 5, "Reference digital tier mismatch")
+    require(not m_res["tier_capped"], "Reference digital should not be capped")
     checks += 1
 
-    # 3. Monotonicity across all 16 sub-dimensions from a mid-point state
+    # 3. Unbounded Frontier Horizons: Level 6 (Value Accrual), Level 7 (Robotic/Wet-Lab), Level 8 (Material Design -> inf)
+    l6_res = compute_scores(max_scores, frontier_horizons={"VAL": 30, "ROB": 0, "WET": 0, "MAT": 0})
+    require(l6_res["sos_effective"] == 130.0, f"Expected 130.0 for Level 6, got {l6_res['sos_effective']}")
+    require(l6_res["effective_tier_level"] == 6, f"Expected Level 6, got {l6_res['effective_tier_level']}")
+    checks += 1
+
+    l7_res = compute_scores(max_scores, frontier_horizons={"VAL": 35, "ROB": 30, "WET": 25, "MAT": 0})
+    require(l7_res["sos_effective"] == 190.0, f"Expected 190.0 for Level 7, got {l7_res['sos_effective']}")
+    require(l7_res["effective_tier_level"] == 7, f"Expected Level 7, got {l7_res['effective_tier_level']}")
+    checks += 1
+
+    l8_res = compute_scores(max_scores, frontier_horizons={"VAL": 40, "ROB": 40, "WET": 40, "MAT": 40})
+    require(l8_res["sos_effective"] == 260.0, f"Expected 260.0 for Level 8, got {l8_res['sos_effective']}")
+    require(l8_res["effective_tier_level"] == 8, f"Expected Level 8, got {l8_res['effective_tier_level']}")
+    checks += 1
+
+    # 4. Unbounded scaling above 1000+ (no upper ceiling on sub-dimensions or frontier horizons)
+    unbounded_sub = {k: 50 for k in ALL_SUBDIMENSIONS}  # Base latent = 200
+    unbounded_front = {"VAL": 200, "ROB": 200, "WET": 200, "MAT": 200}  # FRI = 800
+    inf_res = compute_scores(unbounded_sub, frontier_horizons=unbounded_front)
+    require(inf_res["sos_effective"] == 1000.0, f"Expected 1000.0 on open-ended scale, got {inf_res['sos_effective']}")
+    require(inf_res["effective_tier_level"] == 8, "Expected Level 8 for 1000.0 score")
+    checks += 1
+
+    # 5. Monotonicity across all 16 sub-dimensions from a mid-point state
     base_map = {
         "AIO-1": 8, "AIO-2": 9, "AIO-3": 7, "AIO-4": 8,
         "CTX-1": 18, "CTX-2": 18, "CTX-3": 19, "CTX-4": 17,
@@ -199,7 +248,7 @@ def check_mathematical_invariants() -> int:
             )
         checks += 1
 
-    # 4. RULE-TIER-CAP: high CTX/CRE/JDG (96 each) with AIO = 48 (< 50) must cap at Level 2
+    # 6. RULE-TIER-CAP: high CTX/CRE/JDG (96 each) with AIO = 48 (< 50) must cap at Level 2
     aio_capped_map = {k: 24 for k in ALL_SUBDIMENSIONS}
     for k in ("AIO-1", "AIO-2", "AIO-3", "AIO-4"):
         aio_capped_map[k] = 12  # AIO = 48
@@ -209,7 +258,7 @@ def check_mathematical_invariants() -> int:
     require(cap_res["effective_tier_level"] == 2, f"Expected Level 2 cap, got {cap_res['effective_tier_level']}")
     checks += 1
 
-    # 5. RULE-TIER-CAP: all pillars >= 75, but CRE-3 = 12 (< 13) must cap at Level 2
+    # 7. RULE-TIER-CAP: all pillars >= 75, but CRE-3 = 12 (< 13) must cap at Level 2
     cre3_capped_map = {k: 22 for k in ALL_SUBDIMENSIONS}
     cre3_capped_map["CRE-1"] = 25
     cre3_capped_map["CRE-2"] = 25
@@ -229,7 +278,8 @@ def check_negative_cases(sample_record: dict[str, Any]) -> int:
         ("missing subdimension AIO-1", lambda r: r["subdimensions"].pop("AIO-1")),
         ("unknown subdimension AIO-5", lambda r: r["subdimensions"].update({"AIO-5": deepcopy(r["subdimensions"]["AIO-1"])})),
         ("negative subdimension score", lambda r: r["subdimensions"]["AIO-1"].update(score=-1)),
-        ("subdimension score > 25", lambda r: r["subdimensions"]["CTX-3"].update(score=25.1)),
+        ("negative frontier horizon score", lambda r: r.update(frontier_horizons={"VAL": -5})),
+        ("unknown frontier horizon key", lambda r: r.update(frontier_horizons={"BOGUS": 10})),
         ("boolean subdimension score", lambda r: r["subdimensions"]["JDG-1"].update(score=True)),
         ("invalid evidence_kind", lambda r: r["subdimensions"]["CRE-1"].update(evidence_kind="rumor")),
         ("empty source locator", lambda r: r["subdimensions"]["CRE-2"].update(locator="   ")),
@@ -242,7 +292,7 @@ def check_negative_cases(sample_record: dict[str, Any]) -> int:
         ("tampered sos_latent", lambda r: r["summary"].update(sos_latent=99.99)),
         ("tampered bbf", lambda r: r["summary"].update(bbf=0.9999)),
         ("tampered sos_effective", lambda r: r["summary"].update(sos_effective=88.88)),
-        ("forged uncapped tier ID", lambda r: r["summary"].update(effective_tier_id="Level 5")),
+        ("forged uncapped tier ID", lambda r: r["summary"].update(effective_tier_id="Level 8")),
         ("invalid SFE code in scenario", lambda r: r["scenarios"]["SCN-1"].update(sfe_events=["SFE-BOGUS"])),
     ]
 
@@ -258,6 +308,7 @@ def check_negative_cases(sample_record: dict[str, Any]) -> int:
 
 def main() -> int:
     doc_stats = validate_markdown_document(DOCUMENT)
+    badges_verified = validate_badges_directory(BADGES_DIR)
     math_checks = check_mathematical_invariants()
 
     bundle = decode_strict_json(MAGICLAB_FIXTURE.read_text(encoding="utf-8"))
@@ -280,7 +331,6 @@ def main() -> int:
     require(failure_audit["screen_fallback_rate_sfr"] == 1.0, "Failure showcase trace must have SFR == 1.0")
     require(all(failure_audit["sfe_counts_by_code"][c] >= 1 for c in SFE_CODES), "All 4 SFE codes must be exercised")
 
-    # Run unittest suite
     test_run = subprocess.run(
         [sys.executable, "-m", "unittest", "discover", "-s", str(ROOT / "tests"), "-v"],
         cwd=ROOT,
@@ -296,6 +346,7 @@ def main() -> int:
     summary = {
         "status": "passed",
         "standard": doc_stats,
+        "badges_verified": badges_verified,
         "mathematical_invariant_checks": math_checks,
         "negative_rejection_checks": neg_checks,
         "magiclab_native_effective": val_native["computed"]["sos_effective"],

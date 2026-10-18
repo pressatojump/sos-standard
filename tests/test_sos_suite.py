@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from copy import deepcopy
 import json
 from pathlib import Path
 import subprocess
@@ -15,6 +14,7 @@ SCRIPTS = ROOT / "scripts"
 if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
+from sos_badges import LEVEL_BADGE_SPECS, render_level_badge_svg, validate_badge_svg
 from sos_engine import (
     ALL_SUBDIMENSIONS,
     SOSEngineError,
@@ -40,8 +40,10 @@ class TestSOSEngine(unittest.TestCase):
     def test_standard_document_conformance(self) -> None:
         stats = validate_markdown_document(ROOT / "SCREEN_OBSOLESCENCE_SCORE_STANDARD.md")
         self.assertEqual(stats["subdimensions_verified"], 16)
+        self.assertEqual(stats["frontier_horizons_verified"], 4)
+        self.assertEqual(stats["tiers_verified"], 9)
         self.assertEqual(stats["rules_verified"], 5)
-        self.assertGreaterEqual(stats["sections_verified"], 14)
+        self.assertGreaterEqual(stats["sections_verified"], 15)
 
     def test_magiclab_native_and_coupled_scores(self) -> None:
         val_native = validate_evaluation_record(
@@ -56,6 +58,8 @@ class TestSOSEngine(unittest.TestCase):
         self.assertEqual(val_native["computed"]["bbf"], 0.5517)
         self.assertEqual(val_native["computed"]["sos_effective"], 33.93)
         self.assertEqual(val_native["computed"]["effective_tier_id"], "Level 1")
+        self.assertIsNone(val_native["computed"]["score_ceiling"])
+        self.assertEqual(val_native["computed"]["badge_svg"], "badges/level-1-assisted-screen-scribe.svg")
 
         val_coupled = validate_evaluation_record(
             self.coupled_rec,
@@ -69,6 +73,46 @@ class TestSOSEngine(unittest.TestCase):
         self.assertEqual(val_coupled["computed"]["bbf"], 0.7483)
         self.assertEqual(val_coupled["computed"]["sos_effective"], 57.06)
         self.assertEqual(val_coupled["computed"]["effective_tier_id"], "Level 2")
+        self.assertEqual(val_coupled["computed"]["badge_svg"], "badges/level-2-headless-cognitive-engine.svg")
+
+    def test_unbounded_frontier_horizons_levels_6_7_8(self) -> None:
+        base_sovereign = {sub_id: 25 for sub_id in ALL_SUBDIMENSIONS}
+
+        # Level 6: Autonomous Value Accrual Sovereign
+        res_l6 = compute_scores(
+            base_sovereign,
+            frontier_horizons={"VAL": 30, "ROB": 0, "WET": 0, "MAT": 0},
+        )
+        self.assertEqual(res_l6["sos_effective"], 130.0)
+        self.assertEqual(res_l6["effective_tier_level"], 6)
+        self.assertEqual(res_l6["badge_svg"], "badges/level-6-autonomous-value-accrual-sovereign.svg")
+
+        # Level 7: Robotic & Wet-Lab Development Sovereign
+        res_l7 = compute_scores(
+            base_sovereign,
+            frontier_horizons={"VAL": 35, "ROB": 30, "WET": 25, "MAT": 0},
+        )
+        self.assertEqual(res_l7["sos_effective"], 190.0)
+        self.assertEqual(res_l7["effective_tier_level"], 7)
+        self.assertEqual(res_l7["badge_svg"], "badges/level-7-robotic-wetlab-sovereign.svg")
+
+        # Level 8: Unbounded Matter & Reality Foundry ([220, inf) with no ceiling)
+        open_sub = {sub_id: 40 for sub_id in ALL_SUBDIMENSIONS}  # 160 per pillar
+        res_l8 = compute_scores(
+            open_sub,
+            frontier_horizons={"VAL": 120, "ROB": 150, "WET": 140, "MAT": 180},
+        )
+        self.assertEqual(res_l8["sos_effective"], 750.0)
+        self.assertEqual(res_l8["effective_tier_level"], 8)
+        self.assertEqual(res_l8["badge_svg"], "badges/level-8-unbounded-matter-reality-foundry.svg")
+
+    def test_custom_design_badges_for_all_nine_levels(self) -> None:
+        self.assertEqual(len(LEVEL_BADGE_SPECS), 9)
+        for spec in LEVEL_BADGE_SPECS:
+            svg = render_level_badge_svg(spec["level"])
+            meta = validate_badge_svg(svg, expected_level=spec["level"])
+            self.assertTrue(meta["valid"])
+            self.assertGreater(meta["byte_length"], 500)
 
     def test_rule_tier_cap_enforced_when_aio_below_50(self) -> None:
         scores = {sub_id: 24 for sub_id in ALL_SUBDIMENSIONS}
@@ -92,13 +136,14 @@ class TestSOSEngine(unittest.TestCase):
         self.assertEqual(res["effective_tier_level"], 2)
         self.assertTrue(any("RULE-TIER-CAP: CRE-3" in r for r in res["cap_reasons"]))
 
-    def test_rubric_bands(self) -> None:
+    def test_rubric_bands_including_open_ended_above_25(self) -> None:
         self.assertIn("0-5", rubric_band(0))
         self.assertIn("0-5", rubric_band(5))
         self.assertIn("6-12", rubric_band(6))
         self.assertIn("13-19", rubric_band(13))
         self.assertIn("20-25", rubric_band(20))
         self.assertIn("20-25", rubric_band(25))
+        self.assertIn("25+ (Open-Ended Frontier Mastery)", rubric_band(42.5))
 
     def test_upgrade_sensitivity_identifies_aio_bottleneck(self) -> None:
         raw_scores = {
@@ -115,8 +160,9 @@ class TestSOSEngine(unittest.TestCase):
     def test_markdown_report_rendering(self) -> None:
         md = render_markdown_report(self.native_rec)
         self.assertIn("# SOS-1.0 Evaluation Report: Magic Lab (Native Repository Scope)", md)
-        self.assertIn("`33.93 / 100`", md)
+        self.assertIn("`33.93 / ∞`", md)
         self.assertIn("`Level 1: Assisted Screen Scribe`", md)
+        self.assertIn("badges/level-1-assisted-screen-scribe.svg", md)
 
     def test_rule_seq_01_rejects_missing_standard_file(self) -> None:
         with self.assertRaises(SOSEngineError) as ctx:

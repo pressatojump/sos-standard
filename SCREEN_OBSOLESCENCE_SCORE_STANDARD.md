@@ -73,14 +73,17 @@ In `H-SEALED-SCREEN`, any moment where the human principal would be forced to un
 
 ---
 
-## 3. Normative Architecture of the Score: The Four Critical Factors
+## 3. Normative Architecture of the Score: The Four Core Pillars and Open-Ended Frontier Horizons
 
-Under `SOS-1.0`, a system is evaluated across **four mandatory pillars**, each scored on a bounded interval of **`[0, 100]`** across four **`[0, 25]`** sub-dimensions.
+Under `SOS-1.0`, the score has **no upper ceiling (`[0, ∞)`)**. A score of `100.00` (`25` points per sub-dimension across the four core pillars) represents the **Digital Post-Screen Reference Anchor**—the threshold where human screen operation on a computer becomes obsolete for digital ideation, context assembly, multimodal creation, and independent judgment.
+
+However, eliminating the screen on a digital machine is only the first horizon. An upper ceiling would imply a terminal boundary on what human intent channeled through an autonomous system can solve. In reality, once the screen belongs to the LLM side, the problem-solving loop expands without ceiling from **ideation on a machine** $\rightarrow$ **accrual of value (`VAL`)** $\rightarrow$ **robotic development (`ROB`)** and **wet lab development (`WET`)** $\rightarrow$ **material design (`MAT`)**. Accordingly, both the 16 sub-dimensions ($x_{p,i} \in [0, \infty)$) and the four **Frontier Realization Horizons (`VAL`, `ROB`, `WET`, `MAT` $\in [0, \infty)$)** are open-ended above.
 
 ```
 +-----------------------------------------------------------------------------------+
-|                      SCREEN OBSOLESCENCE SCORE (SOS-1.0)                          |
-|        "How much the system allows the human to never have to use the screen"     |
+|               SCREEN OBSOLESCENCE SCORE (SOS-1.0) — DOMAIN: [0, ∞)                |
+|   "From zero-screen ideation on a machine to value accrual, robotics, wet labs,   |
+|                         and inverse material design"                              |
 +-----------------------------------------------------------------------------------+
          |                          |                         |                  |
          v                          v                         v                  v
@@ -88,13 +91,25 @@ Under `SOS-1.0`, a system is evaluated across **four mandatory pillars**, each s
 | PILLAR I: AIO    |     | PILLAR II: CTX     |     | PILLAR III: CRE  |  | PILLAR IV: JDG   |
 | Audible Inputs   |     | Passive & Active   |     | Creation & LLM-  |  | Independent      |
 | & Outputs        |     | Context Assembly   |     | Managed Screen   |  | Judgment         |
-| (0 - 100 pts)    |     | (0 - 100 pts)      |     | (0 - 100 pts)    |  | (0 - 100 pts)    |
+| (Ref: 100 | 0-∞) |     | (Ref: 100 | 0-∞)   |     | (Ref: 100 | 0-∞) |  | (Ref: 100 | 0-∞) |
 +------------------+     +--------------------+     +------------------+  +------------------+
 | AIO-1 Spoken In  |     | CTX-1 Passive Mem  |     | CRE-1 Paper Gen  |  | JDG-1 Epistemic  |
 | AIO-2 2D->1D Out |     | CTX-2 Active Hunt  |     | CRE-2 Art/Image  |  | JDG-2 Aesthetic  |
 | AIO-3 Audio Zoom |     | CTX-3 Drift/Prov   |     | CRE-3 Self-Screen|  | JDG-3 Tactical   |
 | AIO-4 Zero-GUI   |     | CTX-4 Zero-Copy    |     | CRE-4 CrossModal |  | JDG-4 Escalation |
 +------------------+     +--------------------+     +------------------+  +------------------+
+         |                          |                         |                  |
+         +--------------------------+------------+------------+------------------+
+                                                 |
+                                                 v
++-----------------------------------------------------------------------------------+
+|             UNBOUNDED FRONTIER REALIZATION HORIZONS (FRI ∈ [0, ∞))                |
+|  +-----------------+  +-----------------+  +-----------------+  +---------------+ |
+|  | FRH-1: VAL      |  | FRH-2: ROB      |  | FRH-3: WET      |  | FRH-4: MAT    | |
+|  | Accrual of      |  | Robotic &       |  | Wet Lab &       |  | Material      | |
+|  | Value [0, ∞)    |  | Embodied [0, ∞) |  | Bio/Chem [0, ∞) |  | Design [0, ∞) | |
+|  +-----------------+  +-----------------+  +-----------------+  +---------------+ |
++-----------------------------------------------------------------------------------+
 ```
 
 ---
@@ -219,48 +234,88 @@ Without **independent judgment**, a screenless interface is merely an exhausting
 
 ---
 
-## 4. Mathematical Formulation of the Score
+### Unbounded Frontier Realization Horizons (`FRH` — `[0, ∞)` Points)
 
-### 4.1 Pillar Totals
+Why does `SOS-1.0` have **no upper ceiling**? Because once a human being no longer needs a screen to ideate, assemble context, create multimodal artifacts, and verify truth on a computer (`100.00` Reference Digital Baseline), the boundary of what can be solved by channeling intent through the machine expands outward into the physical, economic, biological, and material world:
 
-Each pillar score $P_k \in [0, 100]$ for $k \in \{\text{AIO}, \text{CTX}, \text{CRE}, \text{JDG}\}$ is the sum of its four sub-dimension scores:
+1. **`FRH-1` (`VAL` — Accrual of Value, `[0, ∞)` pts):**  
+   Measures how completely the system closes the loop from digital creation on a machine to **real-world accrual of value** without human screen supervision—autonomous service deployment, user/customer acquisition loops, market telemetry feedback, capital/resource allocation, revenue or utility generation, and compounding operational value.
+2. **`FRH-2` (`ROB` — Robotic & Embodied Development, `[0, ∞)` pts):**  
+   Measures closed-loop **robotic and physical system development**—CAD/kinematic synthesis, sensorimotor policy training, sim-to-real transfer, mechatronic fabrication, hardware-in-the-loop bring-up, and autonomous physical manipulation without human teleoperation monitors.
+3. **`FRH-3` (`WET` — Wet Lab Development, `[0, ∞)` pts):**  
+   Measures closed-loop **wet-lab biological, chemical, and life-science experimentation**—compiling spoken scientific hypotheses into cloud-lab, microfluidic, or liquid-handling robotic protocols, executing physical assays, ingesting raw instrument telemetry (mass spectrometry, sequencing, microscopy), and iterating experimental rounds autonomously.
+4. **`FRH-4` (`MAT` — Material Design & Matter Synthesis, `[0, ∞)` pts):**  
+   Measures end-to-end **inverse material design and matter realization**—generative crystal/polymer/alloy/metamaterial design, multi-scale quantum/DFT/molecular-dynamics simulation, autonomous synthesis pathway compilation, physical synthesis execution, and diffractometry/spectroscopy characterization closure.
 
-$$\text{AIO} = \sum_{i=1}^{4} \text{AIO}_i, \quad \text{CTX} = \sum_{i=1}^{4} \text{CTX}_i, \quad \text{CRE} = \sum_{i=1}^{4} \text{CRE}_i, \quad \text{JDG} = \sum_{i=1}^{4} \text{JDG}_i$$
+---
+
+## 4. Mathematical Formulation of the Score (Unbounded `[0, ∞)` Domain)
+
+### 4.1 Pillar Totals and Open-Ended Sub-Dimensions
+
+Each sub-dimension $x_{p,i} \in [0, \infty)$ has **no upper ceiling** (`25.0` is the Digital Reference Sovereign Anchor; scores $> 25.0$ represent open-ended super-human/autonomous mastery). Each core pillar score $P_k \in [0, \infty)$ for $k \in \{\text{AIO}, \text{CTX}, \text{CRE}, \text{JDG}\}$ (`100.0` Digital Reference Anchor) is the sum of its four sub-dimension scores:
+
+$$\text{AIO} = \sum_{i=1}^{4} \text{AIO}_i, \quad \text{CTX} = \sum_{i=1}^{4} \text{CTX}_i, \quad \text{CRE} = \sum_{i=1}^{4} \text{CRE}_i, \quad \text{JDG} = \sum_{i=1}^{4} \text{JDG}_i \in [0, \infty)$$
+
+The **Frontier Realization Index (`FRI`)** sums the four unbounded frontier horizons ($\text{VAL}, \text{ROB}, \text{WET}, \text{MAT} \in [0, \infty)$, defaulting to $0$ when a system operates purely on digital ideation-to-machine tasks):
+
+$$\text{FRI} = \text{VAL} + \text{ROB} + \text{WET} + \text{MAT} \in [0, \infty)$$
 
 ### 4.2 Latent Post-Screen Capability Score (`SOS_latent`)
 
-The **Latent Post-Screen Capability Score (`SOS_latent`)** measures the unweighted arithmetic mean of the four pillars—representing how much of the total machinery required for post-screen operation exists in the system:
+The **Base Digital Latent Score (`SOS_base_latent`)** is the arithmetic mean of the four core pillars, and the total **Latent Post-Screen Capability Score (`SOS_latent`)** adds the unbounded Frontier Realization Index:
 
-$$\text{SOS}_{\text{latent}} = \frac{\text{AIO} + \text{CTX} + \text{CRE} + \text{JDG}}{4} \in [0, 100]$$
+$$\text{SOS}_{\text{base\_latent}} = \frac{\text{AIO} + \text{CTX} + \text{CRE} + \text{JDG}}{4} \in [0, \infty)$$
+
+$$\text{SOS}_{\text{latent}} = \text{SOS}_{\text{base\_latent}} + \text{FRI} = \frac{\text{AIO} + \text{CTX} + \text{CRE} + \text{JDG}}{4} + (\text{VAL} + \text{ROB} + \text{WET} + \text{MAT}) \in [0, \infty)$$
 
 ### 4.3 Effective Screen-Free Liberation Score (`SOS_effective`)
 
-In the hypothetical scenario `H-SEALED-SCREEN`, the four pillars do not operate as independent additive bonuses; they form a **serial survival chain**. If a system has world-class independent judgment (`JDG = 90`) and context assembly (`CTX = 85`), but near-zero audible I/O (`AIO = 5`), the human is still physically forced to use a screen (`SFE-IO`) to type commands and read outputs. Conversely, if a system has fluent voice chat (`AIO = 90`) but no independent judgment (`JDG = 10`) or LLM-side visual inspection (`CRE = 10`), the human is forced back to the screen (`SFE-VIS`, `SFE-JDG`) to fix broken outputs.
+In the hypothetical scenario `H-SEALED-SCREEN`, the four core pillars form a **serial survival chain**. Even if a system connects to wet-lab instruments or trading/deployment APIs, if its audible I/O (`AIO`) or LLM-owned screen inspection (`CRE-3`) is broken, the human principal is still forced back to a screen (`SFE-IO`, `SFE-VIS`, `SFE-JDG`).
 
-Therefore, `SOS-1.0` defines the canonical headline metric—the **Effective Screen-Free Liberation Score (`SOS_effective`)**—by coupling the arithmetic mean with a **Bottleneck Balance Factor (`BBF`)**:
+Therefore, `SOS-1.0` defines the canonical headline metric—the **Effective Screen-Free Liberation Score (`SOS_effective`)** on the unbounded interval **`[0, ∞)`**—by coupling `SOS_latent` with the **Bottleneck Balance Factor (`BBF`)**:
 
-$$\text{BBF} = \sqrt{\frac{\min(\text{AIO}, \text{CTX}, \text{CRE}, \text{JDG}) + \epsilon}{\max(\text{AIO}, \text{CTX}, \text{CRE}, \text{JDG}) + \epsilon}}, \quad \text{where } \epsilon = 10$$
+$$\text{BBF} = \sqrt{\frac{\min(\text{AIO}, \text{CTX}, \text{CRE}, \text{JDG}) + \epsilon}{\max(\text{AIO}, \text{CTX}, \text{CRE}, \text{JDG}) + \epsilon}} \in (0, 1], \quad \text{where } \epsilon = 10$$
 
-$$\text{SOS}_{\text{effective}} = \text{round}\left(\text{SOS}_{\text{latent}} \times \text{BBF},\, 2\right) \in [0, 100]$$
+$$\text{SOS}_{\text{effective}} = \text{round}\left(\text{SOS}_{\text{latent}} \times \text{BBF},\, 2\right) \in [0, \infty)$$
 
-- **Why $\epsilon = 10$ and exponent $\gamma = 0.5$:**  
-  A pure geometric mean collapses to $0$ if any pillar is $0$, obscuring substantial architectural progress in headless autonomy. Adding the smoothing constant $\epsilon = 10$ and taking the square root ($\gamma = 0.5$) penalizes severe modality bottlenecks honestly (e.g., a headless system with `AIO = 0` and other pillars at `80` receives $\text{BBF} = \sqrt{10/90} = 0.333$, reducing a `60.0` latent score to an effective `20.0`) while preserving strict monotonicity of `SOS_latent` across all 16 sub-dimensions and strict monotonicity of `SOS_effective` across the bottleneck and all non-maximum pillars.
+- **Why $\epsilon = 10$, exponent $\gamma = 0.5$, and no upper ceiling (`[0, ∞)`):**  
+  A pure geometric mean collapses to $0$ if any pillar is $0$, obscuring substantial architectural progress in headless autonomy. Adding $\epsilon = 10$ and taking the square root ($\gamma = 0.5$) penalizes severe modality bottlenecks honestly (e.g., a headless system with `AIO = 0` and other pillars at `80` receives $\text{BBF} = \sqrt{10/90} = 0.333$, reducing a `60.0` latent score to an effective `20.0`) while preserving strict monotonicity of `SOS_latent` across all 16 sub-dimensions and 4 frontier horizons, strict monotonicity of `SOS_effective` across the bottleneck pillar, non-maximum pillars, and all 4 frontier horizons, and **unbounded upward scaling ($\lim \text{SOS}_{\text{effective}} = \infty$)** as problem-solving expands from machine ideation into value accrual, robotics, wet labs, and material design.
 
-### 4.4 Scribe-to-Post-Screen Maturity Tiers
+### 4.4 Scribe-to-Post-Screen & Unbounded Frontier Maturity Tiers
 
-Every `SOS-1.0` evaluation MUST classify the system into one of six normative tiers based on `SOS_effective` and mandatory minimum pillar floors:
+Every `SOS-1.0` evaluation MUST classify the system into one of nine normative tiers (`Level 0` through `Level 8`, where `Level 8` has **no upper ceiling**: `[220.00, ∞)`) based on `SOS_effective` and mandatory floor requirements:
 
-| Tier | Name | `SOS_effective` Range | Pillar Floor Requirement | Operational Meaning in `H-SEALED-SCREEN` |
-| :--- | :--- | :--- | :--- | :--- |
-| **Level 0** | **Manual Screen Labor** | `0.00 – 19.99` | None | Human performs primary reading, writing, navigation, and verification directly on the screen. |
-| **Level 1** | **Assisted Screen Scribe** | `20.00 – 39.99` | All pillars $\ge 5$, or bottlenecked Level 2/3 engine | LLM accelerates drafting or coding, but the human remains tethered to a screen-based CLI/IDE/viewer for I/O or visual inspection. |
-| **Level 2** | **Headless Cognitive Engine (Screen-Tethered Boundary)** | `40.00 – 59.99` | At least two pillars $\ge 50$ | System exhibits substantial autonomous context, creation, or judgment internally, but requires human screen fallback for acoustic I/O or visual artifact QA. |
-| **Level 3** | **Supervised Screen-Free Delegation** | `60.00 – 79.99` | All four pillars $\ge 50$ | Human operates primarily without a screen via bidirectional audio; LLM manages virtual screens for most creation and verification, with occasional `SFE` escalations. |
-| **Level 4** | **Autonomous Screen Stewardship** | `80.00 – 94.99` | All four pillars $\ge 75$ | System manages the screen end-to-end across papers, art, images, and code with closed-loop visual critics and full-duplex audio; human screen use is rare and discretionary. |
-| **Level 5** | **Post-Screen Liberation** | `95.00 – 100.00` | All four pillars $\ge 90$ | Computer operation as a human visual-spatial base skill is obsolete. The screen belongs entirely to the LLM side; the human channels only intent, taste, and principal authority. |
+| Tier | Name | `SOS_effective` Range | Floor Requirement | Custom Design Badge | Operational Meaning (`H-SEALED-SCREEN` $\rightarrow$ Physical Reality) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Level 0** | **Manual Screen Labor** | `0.00 – 19.99` | None | ![Level 0 Badge](badges/level-0-manual-screen-labor.svg) | Human performs primary reading, writing, navigation, and verification directly on the screen. |
+| **Level 1** | **Assisted Screen Scribe** | `20.00 – 39.99` | All pillars $\ge 5$, or bottlenecked engine | ![Level 1 Badge](badges/level-1-assisted-screen-scribe.svg) | LLM accelerates drafting or coding, but the human remains tethered to a screen-based CLI/IDE/viewer for I/O or visual inspection. |
+| **Level 2** | **Headless Cognitive Engine (Screen-Tethered Boundary)** | `40.00 – 59.99` | At least two pillars $\ge 50$ | ![Level 2 Badge](badges/level-2-headless-cognitive-engine.svg) | System exhibits substantial autonomous context, creation, or judgment internally, but requires human screen fallback for acoustic I/O or visual QA. |
+| **Level 3** | **Supervised Screen-Free Delegation** | `60.00 – 79.99` | All four pillars $\ge 50$ | ![Level 3 Badge](badges/level-3-supervised-screen-free-delegation.svg) | Human operates primarily without a screen via bidirectional audio; LLM manages virtual screens for most creation and verification. |
+| **Level 4** | **Autonomous Screen Stewardship** | `80.00 – 94.99` | All four pillars $\ge 75$ | ![Level 4 Badge](badges/level-4-autonomous-screen-stewardship.svg) | System manages the screen end-to-end across papers, art, images, and code with closed-loop visual critics and full-duplex audio. |
+| **Level 5** | **Post-Screen Liberation (Ideation-on-Machine Sovereign)** | `95.00 – 119.99` | All four pillars $\ge 90$ | ![Level 5 Badge](badges/level-5-post-screen-digital-sovereign.svg) | Computer operation as a human visual-spatial base skill is obsolete. Ideation on a machine to verified software, papers, art, and images is 100% closed-loop. |
+| **Level 6** | **Autonomous Value Accrual Sovereign** | `120.00 – 159.99` | All four pillars $\ge 90$ and `VAL >= 15` | ![Level 6 Badge](badges/level-6-autonomous-value-accrual-sovereign.svg) | System solves problems from spoken ideation on a machine through autonomous deployment, market/operational feedback, and compounding **accrual of value** (`VAL`). |
+| **Level 7** | **Robotic & Wet-Lab Development Sovereign** | `160.00 – 219.99` | All four pillars $\ge 95$, `VAL >= 20`, and (`ROB >= 20` or `WET >= 20`) | ![Level 7 Badge](badges/level-7-robotic-wetlab-sovereign.svg) | Screenless autonomy extends into physical actuation—closing the loop across **robotic development** (`ROB`) and/or **wet-lab experimentation** (`WET`). |
+| **Level 8** | **Unbounded Matter & Reality Foundry** | `220.00 – ∞` *(No Upper Ceiling)* | All four pillars $\ge 95$, `VAL >= 25`, (`ROB >= 25` or `WET >= 25`), and `MAT >= 25` | ![Level 8 Badge](badges/level-8-unbounded-matter-reality-foundry.svg) | Open-ended civilizational horizon (`[220.00, ∞)`): works and solves problems end-to-end from **ideation on a machine $\rightarrow$ accrual of value $\rightarrow$ robotic/wet-lab development $\rightarrow$ inverse material design (`MAT`)**. |
 
 > **Normative Tier Cap Rule (`RULE-TIER-CAP`):**  
-> Even if `SOS_effective` exceeds a tier threshold numerically, a system MUST NOT be certified at **Level 3 or higher** unless `AIO >= 50` AND `CRE-3 (LLM-Owned Screen Loop) >= 13`. A system that cannot converse audibly or cannot visually inspect its own rendered screens cannot claim screen-free liberation in `H-SEALED-SCREEN`.
+> Even if `SOS_effective` exceeds a tier threshold numerically, a system MUST NOT be certified at **Level 3 or higher** unless `AIO >= 50` AND `CRE-3 (LLM-Owned Screen Loop) >= 13`. Furthermore, **Level 6** requires `VAL >= 15`, **Level 7** requires `VAL >= 20` and $\max(\text{ROB}, \text{WET}) \ge 20$, and **Level 8 (`[220.00, ∞)`)** requires `VAL >= 25`, $\max(\text{ROB}, \text{WET}) \ge 25$, and `MAT >= 25`.
+
+### 4.5 Custom Design Badges Specification (`SOS-BADGE-1.0`)
+
+Each normative level (`Level 0` through `Level 8`) has a bespoke vector design badge (`badges/level-<N>-*.svg`) with a custom heraldic emblem, palette, horizon tag, and open-ended score band:
+
+| Level | Badge Emblem & Visual Motif | Primary Palette | Inline Terminal / ASCII Badge | SVG Asset |
+| :---: | :--- | :--- | :--- | :--- |
+| **L0** | **Locked Monitor Bezel & Scanline Cursor** — Represents human eyes and hands trapped inside a 2D pixel grid | Slate & Charcoal (`#1e293b` / `#94a3b8`) | `⟦ L0 ▣ MANUAL SCREEN LABOR · 0–19.99 ⟧` | [`level-0-manual-screen-labor.svg`](badges/level-0-manual-screen-labor.svg) |
+| **L1** | **Split Stylus Nib & Terminal Chevron** — Transition from manual scribing to screen-bound CLI/IDE prompting | Cobalt & Sky (`#1e3a8a` / `#60a5fa`) | `⟦ L1 ✒ ASSISTED SCREEN SCRIBE · 20–39.99 ⟧` | [`level-1-assisted-screen-scribe.svg`](badges/level-1-assisted-screen-scribe.svg) |
+| **L2** | **Autonomous Neural Core in Dashed Bezel** — High internal cognition still tethered to human screen I/O | Indigo & Electric Cyan (`#312e81` / `#38bdf8`) | `⟦ L2 ⚙ HEADLESS COGNITIVE ENGINE · 40–59.99 ⟧` | [`level-2-headless-cognitive-engine.svg`](badges/level-2-headless-cognitive-engine.svg) |
+| **L3** | **Acoustic Waveform Breaking the Frame** — Bidirectional spoken dialogue piercing the monitor boundary | Deep Emerald & Mint (`#065f46` / `#34d399`) | `⟦ L3 ≋ SUPERVISED SCREEN-FREE · 60–79.99 ⟧` | [`level-3-supervised-screen-free-delegation.svg`](badges/level-3-supervised-screen-free-delegation.svg) |
+| **L4** | **Machine-Vision Iris & Orbital Framebuffer** — Offscreen rendering inspected by LLM vision critics | Royal Violet & Amethyst (`#4c1d95` / `#c084fc`) | `⟦ L4 ◉ AUTONOMOUS SCREEN STEWARD · 80–94.99 ⟧` | [`level-4-autonomous-screen-stewardship.svg`](badges/level-4-autonomous-screen-stewardship.svg) |
+| **L5** | **Eclipsed Zero-Nit Monolith & Sovereign Star** — Full ideation-to-machine closure (`0 nit` human screen) | Imperial Amber & Gold (`#78350f` / `#fbbf24`) | `⟦ L5 ★ POST-SCREEN DIGITAL SOVEREIGN · 95–119.99 ⟧` | [`level-5-post-screen-digital-sovereign.svg`](badges/level-5-post-screen-digital-sovereign.svg) |
+| **L6** | **Compounding Value Lattice & Ascending Vector** — Ideation on a machine to autonomous accrual of value (`VAL`) | Sovereign Crimson & Gold (`#7f1d1d` / `#f59e0b`) | `⟦ L6 ◈ VALUE ACCRUAL SOVEREIGN · 120–159.99 ⟧` | [`level-6-autonomous-value-accrual-sovereign.svg`](badges/level-6-autonomous-value-accrual-sovereign.svg) |
+| **L7** | **Kinematic Robotic Arm & Microfluidic Helix** — Physical actuation across robotics (`ROB`) and wet labs (`WET`) | Deep Navy, Cyber Cyan & Bio-Magenta (`#0f172a` / `#22d3ee` / `#f472b6`) | `⟦ L7 ⬡ ROBOTIC & WET-LAB SOVEREIGN · 160–219.99 ⟧` | [`level-7-robotic-wetlab-sovereign.svg`](badges/level-7-robotic-wetlab-sovereign.svg) |
+| **L8** | **Atomic Crystal Lattice Fused with Infinity (`∞`)** — Unbounded ideation $\rightarrow$ value $\rightarrow$ robotics/wet-lab $\rightarrow$ material design (`MAT`) | Obsidian, Solar Gold & Quantum Violet (`#090d16` / `#fde047` / `#e879f9`) | `⟦ L8 ∞ UNBOUNDED MATTER & REALITY FOUNDRY · 220–∞ ⟧` | [`level-8-unbounded-matter-reality-foundry.svg`](badges/level-8-unbounded-matter-reality-foundry.svg) |
 
 ---
 
@@ -291,8 +346,8 @@ Every evaluation conducted under `SOS-1.0` MUST obey the following rules:
    - **Host/Ecosystem Coupled Scope:** Capabilities available when the target system is coupled with its surrounding host runtime (e.g., host voice/TTS tools, browser/vision MCP servers, computer-use agents), evaluated separately if relevant so neither is conflated with the other.
 3. **Evidence Binding (`RULE-EVID-03`):** Every sub-dimension score MUST cite concrete source files, line ranges, architectural mechanisms, or verified absences (`OBSERVATION`), explain the scoring derivation (`INFERENCE`), and state any boundary conditions (`ASSUMPTION` / `UNKNOWN`).
 4. **Required Output Table (`RULE-TABLE-04`):** Every evaluation report MUST present:
-   - All 16 sub-dimension scores (`AIO-1..4`, `CTX-1..4`, `CRE-1..4`, `JDG-1..4`) with `/25` denominators.
-   - All 4 pillar totals (`AIO`, `CTX`, `CRE`, `JDG`) with `/100` denominators.
-   - Exact calculations for `SOS_latent`, `BBF`, `SOS_effective`, and the resulting Maturity Tier (applying `RULE-TIER-CAP` if triggered).
+   - All 16 sub-dimension scores (`AIO-1..4`, `CTX-1..4`, `CRE-1..4`, `JDG-1..4`) with reference anchor `25` (`[0, ∞)` open-ended).
+   - All 4 core pillar totals (`AIO`, `CTX`, `CRE`, `JDG`, reference anchor `100`, `[0, ∞)` open-ended) and the 4 Frontier Realization Horizons (`VAL`, `ROB`, `WET`, `MAT` $\in [0, \infty)$, `FRI`).
+   - Exact calculations for `SOS_base_latent`, `FRI`, `SOS_latent`, `BBF`, `SOS_effective` $\in [0, \infty)$, the resulting Maturity Tier (`Level 0`–`Level 8`, applying `RULE-TIER-CAP` if triggered), and its corresponding Custom Design Badge.
    - Scenario-by-scenario `SFE` (Screen Fallback Event) analysis across `SCN-1` through `SCN-5`.
-   - Concrete architectural delta required to advance the target system to the next Maturity Tier and to `Level 5 (Post-Screen Liberation)`.
+   - Concrete architectural delta required to advance the target system to the next Maturity Tier, to `Level 5 (Post-Screen Digital Sovereign)`, and into the unbounded Frontier Horizons (`Level 6` Value Accrual $\rightarrow$ `Level 7` Robotic/Wet-Lab $\rightarrow$ `Level 8` Material Design `[220.00, ∞)`).

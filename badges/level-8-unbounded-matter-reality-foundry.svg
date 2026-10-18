@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="540" height="68" viewBox="0 0 540 68" role="img" aria-label="LEVEL 8 · UNBOUNDED MATTER &amp; REALITY FOUNDRY (SOS 220.00 – ∞)">
+  <title>LEVEL 8 · UNBOUNDED MATTER &amp; REALITY FOUNDRY — SOS 220.00 – ∞</title>
+  <defs>
+    <linearGradient id="bg-l8" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#05070e"/>
+      <stop offset="100%" stop-color="#3b0764"/>
+    </linearGradient>
+    <linearGradient id="emblem-l8" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="100%" stop-color="#05070e"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="1" width="538" height="66" rx="10" fill="url(#bg-l8)" stroke="#fde047" stroke-width="1.5"/>
+  <rect x="1" y="1" width="68" height="66" rx="10" fill="url(#emblem-l8)"/>
+  <line x1="69" y1="2" x2="69" y2="66" stroke="#fde047" stroke-width="1.2" stroke-opacity="0.65"/>
+  <g id="emblem-matter-infinity">
+    <polygon points="34,13 51,23 51,45 34,55 17,45 17,23" fill="none" stroke="#fde047" stroke-width="1.6"/>
+    <line x1="34" y1="13" x2="34" y2="55" stroke="#fde047" stroke-width="1" stroke-opacity="0.55"/>
+    <line x1="17" y1="23" x2="51" y2="45" stroke="#fde047" stroke-width="1" stroke-opacity="0.55"/>
+    <line x1="51" y1="23" x2="17" y2="45" stroke="#fde047" stroke-width="1" stroke-opacity="0.55"/>
+    <path d="M25 34 C20 27, 15 34, 20 41 C25 45, 43 23, 48 27 C53 34, 48 41, 43 34 C38 27, 30 41, 25 34 Z" fill="none" stroke="#e879f9" stroke-width="2.4"/>
+    <circle cx="34" cy="13" r="2.3" fill="#fde047"/>
+    <circle cx="51" cy="23" r="2.3" fill="#e879f9"/>
+    <circle cx="51" cy="45" r="2.3" fill="#fde047"/>
+    <circle cx="34" cy="55" r="2.3" fill="#e879f9"/>
+    <circle cx="17" cy="45" r="2.3" fill="#fde047"/>
+    <circle cx="17" cy="23" r="2.3" fill="#e879f9"/>
+  </g>
+  <text x="82" y="21" fill="#e879f9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="9.5" font-weight="700" letter-spacing="0.8">SOS-1.0 STANDARD · H4 · IDEATION → VALUE → ROB/WET → MATERIAL DESIGN</text>
+  <rect x="412" y="9" width="116" height="17" rx="8.5" fill="#090d16" fill-opacity="0.72" stroke="#fde047" stroke-width="1"/>
+  <text x="470" y="20.5" fill="#e879f9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="9.5" font-weight="700" text-anchor="middle">SOS 220.00 – ∞</text>
+  <text x="82" y="42" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="14.5" font-weight="800" letter-spacing="0.3">LEVEL 8 · UNBOUNDED MATTER &amp; REALITY FOUNDRY</text>
+  <text x="82" y="57.5" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="500">No upper ceiling [220, ∞): inverse material design &amp; physical synthesis</text>
+</svg>

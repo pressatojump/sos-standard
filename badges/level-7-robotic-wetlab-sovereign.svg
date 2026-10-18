@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="540" height="68" viewBox="0 0 540 68" role="img" aria-label="LEVEL 7 · ROBOTIC &amp; WET-LAB SOVEREIGN (SOS 160.00 – 219.99)">
+  <title>LEVEL 7 · ROBOTIC &amp; WET-LAB SOVEREIGN — SOS 160.00 – 219.99</title>
+  <defs>
+    <linearGradient id="bg-l7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="100%" stop-color="#164e63"/>
+    </linearGradient>
+    <linearGradient id="emblem-l7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="100%" stop-color="#090d16"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="1" width="538" height="66" rx="10" fill="url(#bg-l7)" stroke="#22d3ee" stroke-width="1.5"/>
+  <rect x="1" y="1" width="68" height="66" rx="10" fill="url(#emblem-l7)"/>
+  <line x1="69" y1="2" x2="69" y2="66" stroke="#22d3ee" stroke-width="1.2" stroke-opacity="0.65"/>
+  <g id="emblem-robotic-wetlab">
+    <path d="M18 48 L28 48 M23 48 L23 36 L33 24 L43 28" fill="none" stroke="#22d3ee" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="23" cy="36" r="2.8" fill="#f472b6"/>
+        <circle cx="33" cy="24" r="2.8" fill="#f472b6"/>
+        <path d="M43 24 L48 26 M43 32 L48 30" stroke="#f472b6" stroke-width="2" stroke-linecap="round"/>
+        <path d="M40 36 L44 36 L49 48 L35 48 Z" fill="none" stroke="#f472b6" stroke-width="1.8" stroke-linejoin="round"/>
+        <line x1="37" y1="44" x2="47" y2="44" stroke="#22d3ee" stroke-width="1.5"/>
+  </g>
+  <text x="82" y="21" fill="#f472b6" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="9.5" font-weight="700" letter-spacing="0.8">SOS-1.0 STANDARD · H3 · ROBOTICS &amp; WET-LAB CLOSURE (ROB/WET)</text>
+  <rect x="412" y="9" width="116" height="17" rx="8.5" fill="#090d16" fill-opacity="0.72" stroke="#22d3ee" stroke-width="1"/>
+  <text x="470" y="20.5" fill="#f472b6" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="9.5" font-weight="700" text-anchor="middle">SOS 160.00 – 219.99</text>
+  <text x="82" y="42" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="14.5" font-weight="800" letter-spacing="0.3">LEVEL 7 · ROBOTIC &amp; WET-LAB SOVEREIGN</text>
+  <text x="82" y="57.5" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="500">Embodied actuation, mechatronic synthesis &amp; closed-loop wet-lab assays</text>
+</svg>

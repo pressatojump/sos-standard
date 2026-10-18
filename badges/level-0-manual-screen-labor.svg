@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="540" height="68" viewBox="0 0 540 68" role="img" aria-label="LEVEL 0 · MANUAL SCREEN LABOR (SOS 0.00 – 19.99)">
+  <title>LEVEL 0 · MANUAL SCREEN LABOR — SOS 0.00 – 19.99</title>
+  <defs>
+    <linearGradient id="bg-l0" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="emblem-l0" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="1" width="538" height="66" rx="10" fill="url(#bg-l0)" stroke="#94a3b8" stroke-width="1.5"/>
+  <rect x="1" y="1" width="68" height="66" rx="10" fill="url(#emblem-l0)"/>
+  <line x1="69" y1="2" x2="69" y2="66" stroke="#94a3b8" stroke-width="1.2" stroke-opacity="0.65"/>
+  <g id="emblem-crt-cursor">
+    <rect x="16" y="16" width="36" height="28" rx="3" fill="none" stroke="#94a3b8" stroke-width="2"/>
+        <line x1="20" y1="22" x2="48" y2="22" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2,2"/>
+        <line x1="20" y1="28" x2="48" y2="28" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2,2"/>
+        <line x1="20" y1="34" x2="48" y2="34" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2,2"/>
+        <path d="M26 44 L42 44 M34 44 L34 50 M24 50 L44 50" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+        <polygon points="31,24 31,37 35,34 38,40 40,39 37,33 42,33" fill="#cbd5e1"/>
+  </g>
+  <text x="82" y="21" fill="#cbd5e1" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="9.5" font-weight="700" letter-spacing="0.8">SOS-1.0 STANDARD · H0 · HUMAN SCREEN OPERATOR</text>
+  <rect x="412" y="9" width="116" height="17" rx="8.5" fill="#090d16" fill-opacity="0.72" stroke="#94a3b8" stroke-width="1"/>
+  <text x="470" y="20.5" fill="#cbd5e1" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="9.5" font-weight="700" text-anchor="middle">SOS 0.00 – 19.99</text>
+  <text x="82" y="42" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="14.5" font-weight="800" letter-spacing="0.3">LEVEL 0 · MANUAL SCREEN LABOR</text>
+  <text x="82" y="57.5" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="500">Primary reading, writing, navigation &amp; QA performed on human screen</text>
+</svg>

@@ -1,8 +1,11 @@
 # Screen Obsolescence Score Standard (`SOS-1.0`) & Testing Suite
 
-**Standard ID:** `SOS-STD-1.0` · **Version:** `1.0.0` · **Schema:** `sos-evaluation/1.0`
+**Standard ID:** `SOS-STD-1.0` · **Version:** `1.0.0` · **Schema:** `sos-evaluation/1.0` · **Score Domain:** **`[0, ∞)` (No Upper Ceiling)**
 
 [**Read the Full Standard (`SCREEN_OBSOLESCENCE_SCORE_STANDARD.md`) →**](SCREEN_OBSOLESCENCE_SCORE_STANDARD.md)
+
+![Magic Lab Native SOS-1.0 Badge](badges/magiclab-native.svg)
+![Magic Lab Coupled SOS-1.0 Badge](badges/magiclab-coupled.svg)
 
 ---
 
@@ -12,29 +15,44 @@ Historically, **the scribe** embodied a full-time profession built around a sing
 
 Today, almost every computer-coupled activity—software engineering, scientific research, quantitative analysis, manuscript typesetting, digital art, image synthesis, and systems operations—is boxed into full-time jobs that all share one mandatory human base skill: **operating a screen**. Even when an LLM writes code or drafts text, the human operator remains tethered to a two-dimensional monitor to hunt through file trees, copy-paste context, read dense terminal logs, and visually inspect layouts, PDFs, or generated images for defects.
 
-Thinking beyond the scribe requires recognizing that an LLM coupled with a computer generates **papers, art, images**, and executable systems. In the post-screen paradigm, the virtual screen (framebuffers, PDF rasterizers, 3D canvases, headless browsers) still exists, **but the use of the screen is 100% managed by the LLM side**.
-
-The **Screen Obsolescence Score (`SOS-1.0`)** and its testing suite are important for four reasons:
-
-1. **Measuring the End of Screen Mediation as a Required Base Skill:** Standard LLM benchmarks test how well a model performs *inside* a screen-bound IDE or chat window. `SOS-1.0` is the first standard to measure how completely an LLM-coupled system allows a human being to **never have to use the screen** (`H-SEALED-SCREEN`: `0 nit`, `0 px` human visual bandwidth).
-2. **Exposing the Bottleneck Fallacy in "Autonomous" Systems:** A system with high internal reasoning or coding capability (`CTX`, `CRE`, `JDG`) that lacks bidirectional acoustic mediation (`AIO`) or closed-loop visual self-inspection (`CRE-3`) still forces the human back to the monitor on every turn. Through the **Bottleneck Balance Factor (`BBF`)**, `RULE-TIER-CAP`, and **Screen Fallback Event (`SFE`)** detection, this testing suite prevents headless engines from claiming post-screen autonomy when their human boundary remains screen-tethered.
-3. **Enforcing Closed-Loop Machine Vision Over Visual Artifacts (`LLM-Owned Screen Loop`):** Leaving the screen behind does not mean abandoning visual creation. `SOS-1.0` requires that when a system generates a typeset paper, engineering drawing, artwork, image, or UI, the system must render that artifact to its own internal screen, inspect the pixels with machine vision and structural critics, and repair defects before reporting to the human.
-4. **Preventing Epistemic and Tactical Micromanagement:** Without independent adversarial judgment (`JDG`), a screenless interface either forces the human to open a screen to verify diffs (`SFE-JDG`) or exhausts the human over audio with endless low-level confirmation prompts. `SOS-1.0` tests both epistemic self-verification and principal bandwidth conservation.
+Thinking beyond the scribe requires recognizing two truths:
+1. **On a digital machine, the screen belongs to the LLM side:** A computer coupled with an LLM generates **papers, art, images**, and executable systems. In the post-screen paradigm, virtual framebuffers, PDF rasterizers, 3D canvases, and headless browsers still exist, **but the use of the screen is 100% managed by the LLM side**.
+2. **There is no upper ceiling (`[0, ∞)`):** Eliminating human screen operation on a computer (`100.00` Reference Digital Baseline) is only the first threshold. An upper ceiling would imply a terminal boundary on what channeled human intent can accomplish. Once the digital screen loop is closed, the system's problem-solving horizon expands without ceiling from **ideation on a machine** $\rightarrow$ **accrual of value (`VAL`)** $\rightarrow$ **robotic development (`ROB`)** and **wet lab development (`WET`)** $\rightarrow$ **material design (`MAT`)**.
 
 ---
 
-## Architecture of the Score
+## Custom Design Badges by Maturity Level (`Level 0` to `Level 8` `[220.00, ∞)`)
+
+Each normative level has a custom-designed SVG badge in [`badges/`](badges/) featuring a bespoke vector emblem, horizon header, and open-ended score band:
+
+| Level | Custom SVG Design Badge | Score Band (`[0, ∞)`) | Horizon & Floor Requirement |
+| :---: | :--- | :---: | :--- |
+| **L0** | ![Level 0 Badge](badges/level-0-manual-screen-labor.svg) | `0.00 – 19.99` | **Manual Screen Labor** — Human operates the screen directly |
+| **L1** | ![Level 1 Badge](badges/level-1-assisted-screen-scribe.svg) | `20.00 – 39.99` | **Assisted Screen Scribe** — Screen-tethered CLI/IDE copilot |
+| **L2** | ![Level 2 Badge](badges/level-2-headless-cognitive-engine.svg) | `40.00 – 59.99` | **Headless Cognitive Engine** — At least 2 pillars $\ge 50$; screen-tethered I/O |
+| **L3** | ![Level 3 Badge](badges/level-3-supervised-screen-free-delegation.svg) | `60.00 – 79.99` | **Supervised Screen-Free Delegation** — All 4 pillars $\ge 50$, `AIO >= 50`, `CRE-3 >= 13` |
+| **L4** | ![Level 4 Badge](badges/level-4-autonomous-screen-stewardship.svg) | `80.00 – 94.99` | **Autonomous Screen Stewardship** — All 4 pillars $\ge 75$ |
+| **L5** | ![Level 5 Badge](badges/level-5-post-screen-digital-sovereign.svg) | `95.00 – 119.99` | **Post-Screen Digital Sovereign** — All 4 pillars $\ge 90$ (Full ideation-on-machine closure) |
+| **L6** | ![Level 6 Badge](badges/level-6-autonomous-value-accrual-sovereign.svg) | `120.00 – 159.99` | **Autonomous Value Accrual Sovereign** — All 4 pillars $\ge 90$ + `VAL >= 15` |
+| **L7** | ![Level 7 Badge](badges/level-7-robotic-wetlab-sovereign.svg) | `160.00 – 219.99` | **Robotic & Wet-Lab Sovereign** — All 4 pillars $\ge 95$ + `VAL >= 20` + $\max(\text{ROB}, \text{WET}) \ge 20$ |
+| **L8** | ![Level 8 Badge](badges/level-8-unbounded-matter-reality-foundry.svg) | **`220.00 – ∞`** *(Unbounded)* | **Unbounded Matter & Reality Foundry** — All 4 pillars $\ge 95$ + `VAL >= 25` + $\max(\text{ROB}, \text{WET}) \ge 25$ + `MAT >= 25` |
+
+---
+
+## Architecture of the Unbounded Score (`[0, ∞)`)
 
 ```mermaid
 flowchart TD
-    H["H-SEALED-SCREEN Protocol (0 nit, 0 px Human Visual Bandwidth)"] --> P1["Pillar I: AIO (0-100)\nAudible Inputs & Outputs"]
-    H --> P2["Pillar II: CTX (0-100)\nPassive & Active Context Assembly"]
-    H --> P3["Pillar III: CRE (0-100)\nCreation & LLM-Managed Screen"]
-    H --> P4["Pillar IV: JDG (0-100)\nIndependent Judgment"]
-    P1 & P2 & P3 & P4 --> LAT["SOS_latent = (AIO + CTX + CRE + JDG) / 4"]
-    P1 & P2 & P3 & P4 --> BBF["BBF = sqrt((min + 10) / (max + 10))"]
-    LAT & BBF --> EFF["SOS_effective = round(SOS_latent * BBF, 2)"]
-    EFF --> TIER["Maturity Tier (Level 0 .. Level 5) + RULE-TIER-CAP"]
+    H["H-SEALED-SCREEN Protocol (0 nit, 0 px Human Visual Bandwidth)"] --> P1["Pillar I: AIO [0, ∞)\nAudible Inputs & Outputs (Ref: 100)"]
+    H --> P2["Pillar II: CTX [0, ∞)\nPassive & Active Context Assembly (Ref: 100)"]
+    H --> P3["Pillar III: CRE [0, ∞)\nCreation & LLM-Managed Screen (Ref: 100)"]
+    H --> P4["Pillar IV: JDG [0, ∞)\nIndependent Judgment (Ref: 100)"]
+    P1 & P2 & P3 & P4 --> BASE["SOS_base_latent = (AIO + CTX + CRE + JDG) / 4"]
+    F1["VAL [0, ∞): Accrual of Value"] & F2["ROB [0, ∞): Robotic Dev"] & F3["WET [0, ∞): Wet Lab Dev"] & F4["MAT [0, ∞): Material Design"] --> FRI["FRI = VAL + ROB + WET + MAT ∈ [0, ∞)"]
+    BASE & FRI --> LAT["SOS_latent = SOS_base_latent + FRI ∈ [0, ∞)"]
+    P1 & P2 & P3 & P4 --> BBF["BBF = sqrt((min + 10) / (max + 10)) ∈ (0, 1]"]
+    LAT & BBF --> EFF["SOS_effective = round(SOS_latent * BBF, 2) ∈ [0, ∞)"]
+    EFF --> TIER["Maturity Tier (Level 0 .. Level 8 [220, ∞)) + Custom Badge"]
 ```
 
 ---
@@ -45,8 +63,9 @@ All testing tools reside in [`scripts/`](scripts/) and use **Python 3.11+ standa
 
 | Tool | Purpose |
 | :--- | :--- |
-| [`scripts/validate_standard.py`](scripts/validate_standard.py) | Validates the normative structure of [`SCREEN_OBSOLESCENCE_SCORE_STANDARD.md`](SCREEN_OBSOLESCENCE_SCORE_STANDARD.md), verifies byte-parity with `~/SCREEN_OBSOLESCENCE_SCORE_STANDARD.md`, checks mathematical invariants, runs 20 negative/adversarial rejection tests, validates fixtures, and runs the unit test suite. |
-| [`scripts/sos_engine.py`](scripts/sos_engine.py) | Core `SOS-1.0` scoring, rubric band classification, `BBF` calculation, `RULE-TIER-CAP` enforcement, `RULE-SEQ-01..RULE-TABLE-04` receipt verification, counterfactual upgrade sensitivity analyzer, and Markdown/JSON report generator. |
+| [`scripts/validate_standard.py`](scripts/validate_standard.py) | Validates the normative structure of [`SCREEN_OBSOLESCENCE_SCORE_STANDARD.md`](SCREEN_OBSOLESCENCE_SCORE_STANDARD.md), verifies byte-parity with `~/SCREEN_OBSOLESCENCE_SCORE_STANDARD.md`, checks unbounded `[0, ∞)` mathematical invariants, runs negative/adversarial rejection tests, validates SVG badges & fixtures, and runs the unit test suite. |
+| [`scripts/sos_engine.py`](scripts/sos_engine.py) | Core `SOS-1.0` unbounded scoring (`[0, ∞)`), Frontier Realization Horizons (`VAL`, `ROB`, `WET`, `MAT`), `BBF` calculation, `Level 0..8` + `RULE-TIER-CAP` enforcement, receipt verification, upgrade sensitivity analyzer, and Markdown/JSON report generator. |
+| [`scripts/sos_badges.py`](scripts/sos_badges.py) | Custom SVG & inline ASCII design badge generator and XML validator for `Level 0` through `Level 8` (`[220.00, ∞)`) and evaluated system score badges. |
 | [`scripts/sos_sfe_harness.py`](scripts/sos_sfe_harness.py) | `H-SEALED-SCREEN` Benchmark Simulator & **Screen Fallback Event (`SFE`)** detector across `SCN-1..SCN-5` (`SFE-IO`, `SFE-CTX`, `SFE-VIS`, `SFE-JDG`), computing Screen Fallback Rate (`SFR`) and Screen-Free Survival Rate (`SFSR`). |
 | [`scripts/sos_repo_probe.py`](scripts/sos_repo_probe.py) | Automated static repository & architecture auditor that scans a target codebase across all 16 sub-dimensions, extracts `file:line` evidence locators, and emits a schema-valid `sos-evaluation/1.0` JSON receipt. |
 
@@ -54,51 +73,23 @@ All testing tools reside in [`scripts/`](scripts/) and use **Python 3.11+ standa
 
 ## Quick Start & Verification Commands
 
-### 1. Run the Complete Standard & Test Suite Validator
-
 ```bash
+# 1. Run the Complete Standard, Badge, Invariant & Test Suite Validator
 python3 scripts/validate_standard.py
-```
 
-### 2. Run the Unit Test Suite Directly
+# 2. Generate & Validate All Custom SVG Level & System Badges
+python3 scripts/sos_badges.py
 
-```bash
+# 3. Run the Unit Test Suite Directly
 python3 -m unittest discover -s tests -v
-```
 
-### 3. Validate and Render the Magic Lab `SOS-1.0` Evaluation Report
-
-```bash
-# Validate both Native and Host-Coupled evaluation records against SCREEN_OBSOLESCENCE_SCORE_STANDARD.md
+# 4. Validate and Render the Magic Lab SOS-1.0 Evaluation Report
 python3 scripts/sos_engine.py validate fixtures/magiclab_sos_evaluation.json --standard SCREEN_OBSOLESCENCE_SCORE_STANDARD.md
-
-# Render the Markdown evaluation report (Native + Coupled scopes)
 python3 scripts/sos_engine.py report fixtures/magiclab_sos_evaluation.json --format markdown
-```
 
-### 4. Run the Sealed-Screen Scenario Simulator (`SFE` Detector)
-
-```bash
+# 5. Run the Sealed-Screen Scenario Simulator (SFE Detector)
 python3 scripts/sos_sfe_harness.py fixtures/sample_sfe_traces.json
-```
 
-*(Note: `sample_sfe_traces.json` bundles both `post_screen_sovereign_reference` (`SFR = 0.0`) and `screen_tethered_failure_showcase` (`SFR = 1.0`); pass either sub-object or inspect through `validate_standard.py`.)*
-
-### 5. Probe a Target Repository Automatically
-
-```bash
+# 6. Probe a Target Repository Automatically
 python3 scripts/sos_repo_probe.py /Users/pm/Documents/GitHub/magiclab --standard SCREEN_OBSOLESCENCE_SCORE_STANDARD.md
 ```
-
----
-
-## Repository Map
-
-- [`SCREEN_OBSOLESCENCE_SCORE_STANDARD.md`](SCREEN_OBSOLESCENCE_SCORE_STANDARD.md) — Normative `SOS-1.0` specification (synchronized with `~/SCREEN_OBSOLESCENCE_SCORE_STANDARD.md`).
-- [`scripts/sos_engine.py`](scripts/sos_engine.py) — Mathematical scoring, tier-capping, receipt validation, and upgrade sensitivity engine.
-- [`scripts/sos_sfe_harness.py`](scripts/sos_sfe_harness.py) — `H-SEALED-SCREEN` scenario simulator and `SFE-IO` / `SFE-CTX` / `SFE-VIS` / `SFE-JDG` detector.
-- [`scripts/sos_repo_probe.py`](scripts/sos_repo_probe.py) — Automated repository evidence probe for `SOS-1.0`.
-- [`scripts/validate_standard.py`](scripts/validate_standard.py) — End-to-end specification, invariant, negative-case, and fixture validator.
-- [`fixtures/magiclab_sos_evaluation.json`](fixtures/magiclab_sos_evaluation.json) — Complete `SOS-1.0` evaluation bundle for Magic Lab (`native` and `coupled` scopes).
-- [`fixtures/sample_sfe_traces.json`](fixtures/sample_sfe_traces.json) — Reference `SOS-BENCH-5` scenario interaction traces.
-- [`tests/test_sos_suite.py`](tests/test_sos_suite.py) — Unit and integration test suite.
